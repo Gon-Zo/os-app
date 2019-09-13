@@ -18,7 +18,7 @@ export default class Banner extends Component {
 
 const styles = StyleSheet.create({
     wrap: {
-        width : "100%",
+        widteh : "100%",
         height : "30%" ,
         backgroundColor: '#00f'
     }
