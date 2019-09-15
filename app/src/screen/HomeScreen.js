@@ -1,26 +1,13 @@
 import React, {Component} from 'react';
-import {
-    SafeAreaView,
-    StyleSheet,
-    ScrollView,
-    View,
-    Text,
-    StatusBar,
-} from 'react-native';
+import {Layout, Button, Text} from 'react-native-ui-kitten'
 
 export default class HomeScreen extends Component {
     render() {
         return (
-            <View>
-                <StatusBar barStyle="dark-content"/>
-                <SafeAreaView>
-                    <ScrollView>
-                        <View>
-                            <Text>HomeScreen</Text>
-                        </View>
-                    </ScrollView>
-                </SafeAreaView>
-            </View>
+            <Layout>
+                <Text>HomScreen</Text>
+                <Button onPress={()=>this.props.navigation.navigate('Pop') }>Button 1</Button>
+            </Layout>
         );
     }
 }
