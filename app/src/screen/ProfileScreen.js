@@ -1,26 +1,18 @@
 import React, {Component} from 'react';
-import {
-    SafeAreaView,
-    StyleSheet,
-    ScrollView,
-    View,
-    Text,
-    StatusBar,
-} from 'react-native';
+import {Layout, Text, Button} from 'react-native-ui-kitten'
 
 export default class ProfileScreen extends Component {
+
+    static navigationOptions = {
+        headerTitle: 'Profile',
+    };
+
     render() {
         return (
-            <View>
-                <StatusBar barStyle="dark-content"/>
-                <SafeAreaView>
-                    <ScrollView>
-                        <View>
-                            <Text>ProfileScreen</Text>
-                        </View>
-                    </ScrollView>
-                </SafeAreaView>
-            </View>
+            <Layout>
+                <Text>ProfileScreen</Text>
+                <Button onPress={() => this.props.navigation.navigate("Load")}>Button click</Button>
+            </Layout>
         );
     }
 }
