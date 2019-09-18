@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Layout, Text} from 'react-native-ui-kitten'
 
-export default class LoadScreen extends Component {
+export default class LoadSpinner extends Component {
     render() {
         return (
             <Layout style={{

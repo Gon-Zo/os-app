@@ -9,7 +9,13 @@ import HomeScreen from "./HomeScreen";
 import ProfileScreen from "./ProfileScreen";
 import {createDrawerNavigator} from "react-navigation-drawer";
 import PopScreen from "./PopScreen";
-import LoadScreen from "../component/LoadScreen";
+import LoadSpinner from "../component/LoadSpinner";
+import Test1 from "./drawer/Test1";
+import Test2 from "./drawer/Test2";
+
+
+import DrawerNavigation from './drawer/index'
+
 
 const homStackNav = createStackNavigator({
     Home: {
@@ -37,18 +43,27 @@ const bottomNav = createBottomTabNavigator({
 });
 
 const popNav = createDrawerNavigator({
-    Pop: PopScreen ,
+    Pop: PopScreen,
 });
 
 const loadNav = createDrawerNavigator({
-    Load : LoadScreen
+    Load: LoadSpinner
 });
+
+const DrawerNavigator = createDrawerNavigator({
+    Test1: Test1,
+    Test2: Test2
+}, {
+    contentComponent: DrawerNavigation,
+});
+
 
 // Public Screens
 const MyApp = createStackNavigator({
     Bottom: bottomNav,
-    Pop: popNav ,
-    Load : loadNav
+    Pop: popNav,
+    Load: loadNav,
+    Menu: DrawerNavigator
 }, {headerMode: "none"});
 
 const AppRouter = createAppContainer(MyApp);
