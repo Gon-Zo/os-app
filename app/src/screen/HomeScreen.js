@@ -1,25 +1,20 @@
 import React, {Component} from 'react';
 import {Layout, Text, Button} from 'react-native-ui-kitten'
-import {SafeAreaView, View, StyleSheet, ScrollView, StatusBar, Image, Dimensions,} from 'react-native';
-import Carousel from "react-native-banner-carousel";
+import {SafeAreaView, View, StyleSheet, ScrollView, StatusBar, Image, Dimensions, TextInput,} from 'react-native';
 import ImgBanner from "../component/ImgBanner";
 import CategoryCard from "../component/CategoryCard";
-
-
-const BannerWidth = Dimensions.get('window').width;
-const BannerHeight = 260;
-
-const images = [
-    "../common/img/test1.jpg",
-    "../common/img/test1.jpg",
-    "../common/img/test1.jpg"
-];
-
+import SearchBox from "../component/SearchBox";
 
 export default class HomeScreen extends Component {
 
+    constructor(props){
+        super(props)
+        this.state = {nav : this.props.navigation}
+    }
+
     static navigationOptions = {
         headerTitle: 'Home',
+
         headerLeft: (
             <Button onPress={() => navigation.navigate('Menu')}>Left</Button>
         ),
@@ -27,7 +22,6 @@ export default class HomeScreen extends Component {
             <Button onPress={() => alert("test success")}>Right</Button>
         )
     };
-
 
     render() {
         return (
@@ -37,6 +31,7 @@ export default class HomeScreen extends Component {
                     <ScrollView style={{backgroundColor: '#fff'}}>
                         <ImgBanner/>
                         <CategoryCard/>
+                        <SearchBox/>
                     </ScrollView>
                 </SafeAreaView>
             </View>
