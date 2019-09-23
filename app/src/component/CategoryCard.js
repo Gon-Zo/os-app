@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
-import {Image, View, StyleSheet} from 'react-native';
-import Carousel from "react-native-banner-carousel";
+import {Image, View, StyleSheet, TouchableOpacity} from 'react-native';
 
 
 const images = [
@@ -17,12 +16,21 @@ const images = [
 
 export default class CategoryCard extends Component {
 
+    constructor(props){
+        super(props)
+    }
+
+
     renderCard(src, idx) {
         return (
-            <View style={styles.cardBox}>
+            <TouchableOpacity
+                activeOpacity={1}
+                style={styles.cardBox} onPress={() => {
+                this.props.navigation.navigate("Pop")
+            }}>
                 <Image style={{width: 100, height: 100}}
                        source={require('../common/img/test2.jpg')}/>
-            </View>
+            </TouchableOpacity>
         )
     }
 
@@ -40,10 +48,11 @@ const styles = StyleSheet.create({
         flexWrap: 'wrap',
         alignItems: 'flex-start',
         flexDirection: 'row',
-        backgroundColor : '#f00',
-        marginTop : 30,
+        backgroundColor: '#f00',
+        marginTop: 30,
     },
     cardBox: {
+        backgroundColor: '#0ff',
         flexDirection: 'column',
     },
 })
