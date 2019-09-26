@@ -5,7 +5,7 @@ import Carousel from "react-native-banner-carousel";
 // <Image style={{ width: BannerWidth, height: BannerHeight }} source={{ uri: image }} />
 
 const BannerWidth = Dimensions.get('window').width;
-const BannerHeight = 260;
+const BannerHeight = 180;
 
 const images = [
     "../common/img/test1.jpg",
@@ -33,8 +33,7 @@ export default class ImgBanner extends Component {
                 autoplayTimeout={5000}
                 loop
                 index={0}
-                pageSize={BannerWidth}
-            >
+                pageSize={BannerWidth}>
                 {images.map((image, index) => this.renderPage(image, index))}
             </Carousel>
         );
