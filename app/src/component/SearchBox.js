@@ -4,11 +4,7 @@ import {Button, Icon, Input, Layout} from "react-native-ui-kitten";
 
 
 export const FacebookIcon = (style) => (
-    <Icon name='facebook' {...style} />
-);
-
-export const LoginButton = () => (
-    <Button style={styles.btnStyle} icon={FacebookIcon}></Button>
+    <Icon name='search' {...style} />
 );
 
 export default class SearchBox extends Component {
@@ -27,11 +23,12 @@ export default class SearchBox extends Component {
         return (
             <View style={styles.wrap}>
                 <Input
+                    style={styles.test}
                     status='info'
                     value={this.state.inputValue}
                     onChangeText={this.onInputValueChange}
                 />
-                <LoginButton/>
+                <Button style={styles.btnStyle} icon={FacebookIcon} onPress={()=>{alert("test succ >> " + this.state.inputValue)}}></Button>
             </View>
         );
     }
@@ -40,22 +37,27 @@ export default class SearchBox extends Component {
 const styles = StyleSheet.create({
     wrap: {
         width: '100%',
-        height: '50%',
+        height: 50 ,
         position: "relative",
-        backgroundColor: '#c9c9c9',
+        backgroundColor: '#0ff',
     },
+
     test: {
-        position: "absolute",
-        top: 0,
-        left: 0
+        // position: "absolute",
+        // top: 0,
+        // left: 0
+        width: '85%',
+        height: 50,
+        marginLeft : 5 ,
+        borderRadius: 100,
     },
+
     btnStyle: {
         width: 20,
         height: 20,
         position: "absolute",
-        top: 0,
-        right: 0,
-        borderRadius: 20,
+        top: 5,
+        right: 5,
+        borderRadius: 10,
     }
 });
-
