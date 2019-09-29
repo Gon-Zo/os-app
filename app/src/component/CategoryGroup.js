@@ -54,7 +54,8 @@ export default class CategoryGroup extends Component {
         return (
             <Layout style={styles.buttonGroup}>
                 <View style={{
-                    flex: 1, flexDirection: 'row',
+                    flex: 1,
+                    flexDirection: 'row',
                     flexWrap: 'wrap',
                     alignItems: 'flex-start',
                     paddingLeft : 5
