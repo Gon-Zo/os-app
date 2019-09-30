@@ -15,15 +15,20 @@ import Test2 from "./drawer/Test2";
 import DrawerNavigation from './drawer/index'
 
 
+
+import SettingScreen from "./SettingScreen";
+
+
 const mainRoot = createBottomTabNavigator({
-    Home: {screen: HomeScreen},
+    Setting: {screen: SettingScreen},
     Profile: {screen: ProfileScreen},
+    Home: {screen: HomeScreen, navigationOptions: {}},
 });
 
 
 const MyApp = createStackNavigator({
     Main: mainRoot
-}, {headerMode : "none"});
+}, {headerMode: "none"});
 
 const AppRouter = createAppContainer(MyApp);
 
