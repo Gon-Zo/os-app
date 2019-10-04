@@ -1,5 +1,11 @@
-import * as sumAction from './SumAction'
+import * as sumAction from './ex/SumAction'
+import * as loginAction from './login/LoginAction'
 
-const ActionCreaters = Object.assign({} , sumAction);
+const ActionCreators = Object.assign({},
+    // example
+    sumAction,
+    // login
+    loginAction,
+);
 
-export default ActionCreaters
+export default ActionCreators
