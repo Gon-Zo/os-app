@@ -5,7 +5,7 @@ import {createStackNavigator} from 'react-navigation-stack'
 
 // main Root
 import MainRoot from "../main";
-import FormNav from "../access/update";
+import FormNav from "../single/update";
 
 const MyApp = createStackNavigator({
     Main: MainRoot,

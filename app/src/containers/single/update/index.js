@@ -13,7 +13,7 @@ class UpdateScreen extends Component {
                     width: '100%',
                     height: '100%',
                 }}>
-
+                <Text>Update Form</Text>
                 </View>
             </Layout>
         );
