@@ -9,7 +9,7 @@ import {
     StatusBar,
     Button
 } from 'react-native';
-import ActionCreaters from '../../actions'
+import ActionCreators from '../../actions'
 import {connect} from 'react-redux'
 
 class Count extends Component {
@@ -90,11 +90,11 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
     return {
         updateFirst: (num) => {
-            dispatch(ActionCreaters.firstNum(num));
+            dispatch(ActionCreators.firstNum(num));
 
         },
         updateSecond: (num) => {
-            dispatch(ActionCreaters.secondNum(num));
+            dispatch(ActionCreators.secondNum(num));
         }
     };
 }
