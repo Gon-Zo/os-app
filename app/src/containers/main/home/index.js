@@ -1,16 +1,16 @@
 import React, {Component} from 'react';
 import {Layout, Text, Button} from 'react-native-ui-kitten'
 import {SafeAreaView, View, StyleSheet, ScrollView, StatusBar, Image, Dimensions, TextInput,} from 'react-native';
-import ImgBanner from "../component/ImgBanner";
-import CategoryGroup from "../component/CategoryGroup";
-import SearchBox from "../component/SearchBox";
-import TextCard from "../component/textCard";
-import ItemList from "../component/ItemList";
+import ImgBanner from "../../../components/ImgBanner";
+import CategoryGroup from "../../../components/CategoryGroup";
+import SearchBox from "../../../components/SearchBox";
+import TextCard from "../../../components/textCard";
+import ItemList from "../../../components/ItemList";
 
 export default class HomeScreen extends Component {
 
     constructor(props) {
-        super(props)
+        super(props);
         this.state = {nav: this.props.navigation}
     }
 
@@ -42,5 +42,3 @@ export default class HomeScreen extends Component {
         );
     }
 }
-
-

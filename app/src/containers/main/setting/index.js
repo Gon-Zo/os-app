@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
-import {SafeAreaView, StyleSheet, ScrollView, View, StatusBar,} from 'react-native';
+import {SafeAreaView, StyleSheet, ScrollView, View, StatusBar} from 'react-native';
 import {Layout, Text} from "react-native-ui-kitten";
-import {Image} from "react-native-svg";
-import ProfileCard from "../component/ProfileCard";
-import MenuGroup from "../component/MenuGroup";
+
+import ProfileCard from "../../../components/ProfileCard";
+import MenuGroup from "../../../components/MenuGroup";
 
 export default class SettingScreen extends Component {
     render() {
@@ -12,7 +12,7 @@ export default class SettingScreen extends Component {
                 <StatusBar barStyle="dark-content"/>
                 <SafeAreaView>
                     <ScrollView style={{
-                        backgroundColor : "#f0f"
+                        backgroundColor: "#f0f"
                     }}>
                         <ProfileCard/>
                         <MenuGroup/>

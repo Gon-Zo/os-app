@@ -7,6 +7,7 @@ export const UpdateIcon = (style) => (
 );
 
 export default class IconButton extends Component {
+
     render() {
         return (
             <Button style={{
@@ -16,7 +17,7 @@ export default class IconButton extends Component {
                 backgroundColor: 'transparent',
                 borderColor: 'transparent'
             }} icon={UpdateIcon} onPress={() => {
-                alert("Test Success")
+                this.props.navigation.navigate('Update');
             }}></Button>
         );
     }

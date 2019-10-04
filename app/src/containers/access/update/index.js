@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import {View, StyleSheet, TextInput} from 'react-native'
 import {Layout, Text, Button, Input} from 'react-native-ui-kitten'
+import {createDrawerNavigator} from "react-navigation-drawer";
 
-
-export default class UpdateScreen extends Component {
+class UpdateScreen extends Component {
 
     render() {
         return (
@@ -19,3 +19,9 @@ export default class UpdateScreen extends Component {
         );
     }
 }
+
+const FormNav = createDrawerNavigator({
+    Update: {screen: UpdateScreen},
+});
+
+export default FormNav

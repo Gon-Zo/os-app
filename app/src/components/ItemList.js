@@ -24,7 +24,7 @@ class ItemCard extends Component {
                 // justifyContent: 'center',
             }}>
                 <Image style={{width: 180, height: 120, backgroundColor: '#fff', flexDirection: 'row'}}
-                       source={require("../common/img/test3.jpg")}/>
+                       source={require("../public/img/test3.jpg")}/>
                 <Text style={{
                     flexDirection: 'row',
                     fontWeight: 'bold',

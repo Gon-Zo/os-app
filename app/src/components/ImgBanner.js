@@ -19,7 +19,7 @@ export default class ImgBanner extends Component {
         return (
             <View key={index}>
                 <Image style={{width: BannerWidth, height: BannerHeight}}
-                       source={require('../common/img/test1.jpg')}
+                       source={require('../public/img/test1.jpg')}
                 />
             </View>
         );

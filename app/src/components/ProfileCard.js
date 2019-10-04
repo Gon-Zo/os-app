@@ -52,7 +52,7 @@ export default class ProfileCard extends Component {
                             borderWidth: 1,
                             borderColor: '#7f7f7f'
                         }}
-                        source={require("../common/img/default.png")}
+                        source={require("../public/img/default.png")}
                     />
                 </View>
                 {/* Image Layout end */}

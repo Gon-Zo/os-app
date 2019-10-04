@@ -7,8 +7,10 @@ import {
     Text,
     StatusBar,
 } from 'react-native';
+import {Button} from 'react-native-ui-kitten'
 
-export default class Test2 extends Component {
+
+export default class Test2Screen extends Component {
     render() {
         return (
             <View>
@@ -17,6 +19,12 @@ export default class Test2 extends Component {
                     <ScrollView>
                         <View>
                             <Text>Test2</Text>
+                            <Button
+                                onPress={() => {
+                                    this.props.navigation.navigate('Update');
+                                }}>
+                                Test
+                            </Button>
                         </View>
                     </ScrollView>
                 </SafeAreaView>

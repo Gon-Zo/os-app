@@ -5,14 +5,14 @@ import {Layout} from "react-native-ui-kitten";
 import {Text} from 'react-native-ui-kitten'
 
 const images = [
-    {src: require("../common/img/test2.jpg"), title: "col1"},
-    {src: require("../common/img/test2.jpg"), title: "col2"},
-    {src: require("../common/img/test2.jpg"), title: "col3"},
-    {src: require("../common/img/test2.jpg"), title: "col4"},
-    {src: require("../common/img/test2.jpg"), title: "col5"},
-    {src: require("../common/img/test2.jpg"), title: "col6"},
-    {src: require("../common/img/test2.jpg"), title: "col7"},
-    {src: require("../common/img/test2.jpg"), title: "col8"},
+    {src: require("../public/img/test2.jpg"), title: "col1"},
+    {src: require("../public/img/test2.jpg"), title: "col2"},
+    {src: require("../public/img/test2.jpg"), title: "col3"},
+    {src: require("../public/img/test2.jpg"), title: "col4"},
+    {src: require("../public/img/test2.jpg"), title: "col5"},
+    {src: require("../public/img/test2.jpg"), title: "col6"},
+    {src: require("../public/img/test2.jpg"), title: "col7"},
+    {src: require("../public/img/test2.jpg"), title: "col8"},
 
 ];
 
