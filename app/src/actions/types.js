@@ -4,8 +4,9 @@ const types = {
     SECOND_NUM: 'SECOND_NUM',
 
     //login
-    CHECK_ID : 'CHECK_ID',
-    CHECK_PWD : 'CHECK_PWD'
+    CHECK_ID: 'CHECK_ID',
+    CHECK_PWD: 'CHECK_PWD',
+    USER_LOGIN: 'USER_LOGIN',
 
 };
 export default types

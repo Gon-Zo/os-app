@@ -1,8 +1,11 @@
 import types from "../../actions/types";
 
 const defaultState = {
-    id: '',
-    pwd: ''
+    loginInfo: {
+        id: '',
+        pwd: '',
+        state: false
+    },
 };
 
 export default login = (state = defaultState, action) => {
@@ -10,14 +13,30 @@ export default login = (state = defaultState, action) => {
 
         case types.CHECK_ID :
             return {
-                id: action.value,
-                pwd: state.pwd
+                loginInfo: {
+                    id: action.value,
+                    pwd: state.loginInfo.pwd,
+                    state: state.loginInfo.state
+                }
             };
 
         case types.CHECK_PWD :
             return {
-                id: state.id,
-                pwd: action.value
+                loginInfo: {
+                    id: state.loginInfo.id,
+                    pwd: action.value,
+                    state: state.loginInfo.state
+                }
+            };
+
+        case types.USER_LOGIN :
+
+            return {
+                loginInfo: {
+                    state: action.state,
+                    id: state.loginInfo.id,
+                    pwd: state.loginInfo.pwd
+                }
             };
 
         default :

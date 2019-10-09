@@ -15,3 +15,11 @@ export function checkPwd(text) {
         value: text
     }
 }
+
+// Login
+export function userLogin(flag) {
+    return {
+        type: types.USER_LOGIN,
+        state: flag
+    }
+}
