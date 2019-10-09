@@ -2,14 +2,16 @@ import React, {Component} from 'react';
 import {ScrollView, StyleSheet, View, Image} from 'react-native';
 import {Text, Layout, Icon, Button} from "react-native-ui-kitten";
 import IconButton from "./IconButton";
+import {connect} from "react-redux";
 
+// DEMO DATA
 const userInfo = {
     id: 'test1',
     name: 'tester1',
     phone: "zcx-xzcz-xzcx"
 };
 
-
+// TextCard UI
 class TextCard extends Component {
     render() {
         return (
@@ -20,7 +22,8 @@ class TextCard extends Component {
     }
 }
 
-export default class ProfileCard extends Component {
+// Profile UI
+class Profile extends Component {
 
     renderTextCard(text) {
         return (
@@ -28,15 +31,9 @@ export default class ProfileCard extends Component {
         )
     }
 
-    test() {
-        return Object.keys(userInfo)
-    }
-
-
     render() {
         return (
-            <Layout style={styles.wrap}>
-
+            <View>
                 <View style={styles.iconWrap}>
                     <IconButton style={{
                         alignItems: 'flex-end',
@@ -63,8 +60,42 @@ export default class ProfileCard extends Component {
                     {this.renderTextCard(userInfo['phone'])}
                 </View>
                 {/*User Info */}
+            </View>
+        );
+    }
+}
+
+class LoginBtn extends Component {
+    render() {
+        return (
+            <Button
+                navigation={this.props.navigation}
+                onPress={() => this.props.navigation.navigate('Login')}>Login</Button>
+        );
+    }
+}
+
+class ProfileCard extends Component {
+
+    renderProfileCard() {
+        return this.props.state ?
+            <Profile/> :
+            <LoginBtn navigation={this.props.navigation}/>
+    }
+
+
+    render() {
+        return (
+            <Layout style={styles.wrap}>
+                {this.renderProfileCard()}
             </Layout>
         );
+    }
+}
+
+function mapStateToProps(state) {
+    return {
+        state: state.login.loginInfo.state
     }
 }
 
@@ -101,3 +132,5 @@ const styles = StyleSheet.create({
     }
 
 });
+
+export default connect(mapStateToProps)(ProfileCard)
