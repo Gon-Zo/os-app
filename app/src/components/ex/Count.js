@@ -37,11 +37,13 @@ class Count extends Component {
                         style={styles.input}
                         onChangeText={(text) => {
                             this.setState({text})
+
                             var num = 0
+
                             if (text != '') {
                                 num = parseInt(text, 10)
                             }
-                            console.log("Text Input Value 1 >> " + text)
+
                             this.props.updateFirst(Number(text))
                         }}
                     />

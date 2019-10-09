@@ -8,7 +8,7 @@ import {
     StatusBar,
 } from 'react-native';
 import {Button} from 'react-native-ui-kitten'
-import Count from "../../../components/ex/Count";
+
 
 
 export default class Test2Screen extends Component {
@@ -18,7 +18,18 @@ export default class Test2Screen extends Component {
                 <StatusBar barStyle="dark-content"/>
                 <SafeAreaView>
                     <ScrollView>
-                        <Count/>
+
+                            <Button
+                                onPress={() => {
+                                    this.props.navigation.navigate('Login');
+                                }}>
+                                Login
+                            </Button>
+
+
+                        {/*<Count/>*/}
+
+
                         {/*<View>*/}
                         {/*    <Text>Test2</Text>*/}
                         {/*    <Button*/}
@@ -29,6 +40,8 @@ export default class Test2Screen extends Component {
                         {/*    </Button>*/}
                         {/*    <Count/>*/}
                         {/*</View>*/}
+
+
                     </ScrollView>
                 </SafeAreaView>
             </View>
