@@ -34,6 +34,9 @@ const styles = StyleSheet.create({
     wrap: {
         width: '100%',
         height: 50,
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor : '#f00'
     },
     box: {
         width: '100%',
