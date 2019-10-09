@@ -7,14 +7,14 @@ class LoginScreen extends Component {
     render() {
         return (
             <Layout>
-                <LoginForm/>
+                <LoginForm navigation={this.props.navigation}/>
             </Layout>
         );
     }
 }
 
 const LoginNav = createDrawerNavigator({
-    Login : LoginScreen
+    Login: LoginScreen
 });
 
 export default LoginNav
