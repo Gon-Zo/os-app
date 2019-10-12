@@ -24,14 +24,13 @@ const images = [
 
 class Button extends Component {
     render() {
-
         return (
             <TouchableOpacity activeOpacity={1} style={{
                 width: 82,
                 height: 100,
                 alignItems: 'center',
                 justifyContent: 'center',
-            }} onPress={() => alert("test.. ==> Success")}>
+            }} onPress={() => alert("test.. ==> Success")} key={this.props.idx}>
                 <Image style={{width: 50, height: 50, backgroundColor: '#fff'}}
                        source={this.props.src}
                 />
@@ -43,9 +42,9 @@ class Button extends Component {
 
 export default class CategoryGroup extends Component {
 
-    renderCard(src, title) {
+    renderCard(src, title, index) {
         return (
-            <Button name={title} src={src}/>
+            <Button name={title} src={src} idx={index}/>
         )
     }
 
@@ -60,7 +59,7 @@ export default class CategoryGroup extends Component {
                     alignItems: 'flex-start',
                     paddingLeft : 5
                 }}>
-                    {images.map((i) => this.renderCard(i.src, i.title))}
+                    {images.map((i , index) => this.renderCard(i.src, i.title , index))}
                 </View>
             </Layout>
         );
