@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import {StyleSheet, View, TextInput, Text} from 'react-native';
 import {Input, Button} from "react-native-ui-kitten";
-import TextButton from "./TextButton";
 import ActionCreators from "../actions";
 import {connect} from 'react-redux'
 import axios from 'axios'
@@ -58,9 +57,6 @@ class LoginForm extends Component {
                     }}>Login</Button>
                 </View>
                 {/* button box end*/}
-
-                {/*<TextButton text={"this is test button "}/>*/}
-                {/*  text button end   */}
 
             </View>
             //loginFormWrap
