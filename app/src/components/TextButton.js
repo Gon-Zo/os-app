@@ -19,9 +19,7 @@ export default class TextButton extends Component {
         return (
             <TouchableOpacity
                 style={styles.wrap}
-                activeOpacity={1} onPress={() => {
-                alert("test success")
-            }}>
+                activeOpacity={1} onPress={() => {this.props.navigation.navigate('Sign')}}>
                 <View style={styles.box}>
                     <Text style={styles.text}>{this.props.text}</Text>
                 </View>
