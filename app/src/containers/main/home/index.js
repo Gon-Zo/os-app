@@ -35,7 +35,7 @@ export default class HomeScreen extends Component {
                         <CategoryGroup/>
                         <SearchBox/>
                         <TextCard title={'인기 상품'} />
-                        <ItemList/>
+                        <ItemList navigation={this.props.navigation}/>
                     </ScrollView>
                 </SafeAreaView>
             </View>
