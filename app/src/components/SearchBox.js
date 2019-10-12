@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {StyleSheet, View} from 'react-native';
-import {Button, Icon, Input, Layout} from "react-native-ui-kitten";
-
+import {Button, Input, Layout} from "react-native-ui-kitten";
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 export const FacebookIcon = (style) => (
     <Icon name='search' {...style} />
@@ -28,7 +28,10 @@ export default class SearchBox extends Component {
                     value={this.state.inputValue}
                     onChangeText={this.onInputValueChange}
                 />
-                <Button style={styles.btnStyle} icon={FacebookIcon} onPress={()=>{alert("test succ >> " + this.state.inputValue)}}></Button>
+                <Icon name='search' size={30} color='#f00' 
+                      style={styles.btnStyle}
+                      onPress={()=>{alert("test success >> value is " + this.state.inputValue)}}/>
+                {/*<Button style={styles.btnStyle} icon={FacebookIcon} onPress={()=>{alert("test succ >> " + this.state.inputValue)}}></Button>*/}
             </View>
         );
     }
@@ -53,11 +56,13 @@ const styles = StyleSheet.create({
     },
 
     btnStyle: {
-        width: 20,
-        height: 20,
+        width: 40,
+        height: 40,
+        backgroundColor : '#000',
         position: "absolute",
         top: 5,
         right: 5,
         borderRadius: 10,
+        textAlign : 'center',
     }
 });

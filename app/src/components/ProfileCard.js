@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import {ScrollView, StyleSheet, View, Image} from 'react-native';
-import {Text, Layout, Icon, Button} from "react-native-ui-kitten";
-import IconButton from "./IconButton";
+import {Text, Layout, Button} from "react-native-ui-kitten";
 import {connect} from "react-redux";
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 // DEMO DATA
 const userInfo = {
@@ -35,9 +35,8 @@ class Profile extends Component {
         return (
             <View>
                 <View style={styles.iconWrap}>
-                    <IconButton style={{
-                        alignItems: 'flex-end',
-                    }}/>
+                    {/*<IconButton icon={EditIcon}/>*/}
+                    <Icon name='pencil-square-o' size={40} color='#424242' onPress={()=>{alert("start to test")}}/>
                 </View>
 
                 <View style={styles.cardWrap}>
@@ -111,6 +110,7 @@ const styles = StyleSheet.create({
         height: 40,
         alignItems: 'flex-end',
         paddingRight: 10,
+        marginTop: 10
     },
     cardWrap: {
         width: '100%',
