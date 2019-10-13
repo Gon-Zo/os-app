@@ -8,8 +8,10 @@ const types = {
     CHECK_PWD: 'CHECK_PWD',
     USER_LOGIN: 'USER_LOGIN',
 
-
     // signup
-    CHECK_ADDRESS : 'CHECK_ADDRESS'
+    CHECK_ADDRESS : 'CHECK_ADDRESS',
+
+    // Search Value
+    SEARCH_STATE : 'SEARCH_STATE'
 };
 export default types
