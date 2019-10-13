@@ -31,7 +31,9 @@ class SettingScreen extends Component {
             <Layout>
                 <StatusBar barStyle="dark-content"/>
                 <SafeAreaView>
-                    <ScrollView style={{
+                    <ScrollView
+                        showsVerticalScrollIndicator={false}
+                        style={{
                         backgroundColor: "#c9c9c9"
                     }}>
                         <ProfileCard navigation={this.props.navigation}/>

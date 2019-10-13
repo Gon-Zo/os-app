@@ -12,13 +12,16 @@ import DetailCard from "../../../components/DetailCard";
 import DetailContent from "../../../components/DetailContent";
 import DetailTapScreen from "../../../components/Tap";
 
+//          showsHorizontalScrollIndicator={false]
 class DetailScreen extends Component {
     render() {
         return (
             <View>
                 <StatusBar barStyle="dark-content"/>
                 <SafeAreaView>
-                    <ScrollView style={{backgroundColor : '#c9c9c9'}}>
+                    <ScrollView
+                        showsVerticalScrollIndicator={false}
+                        style={{backgroundColor: '#c9c9c9'}}>
                         <DetailCard/>
                         <DetailContent/>
                         <DetailTapScreen/>

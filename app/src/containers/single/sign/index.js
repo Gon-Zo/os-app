@@ -18,7 +18,8 @@ class SignScreen extends Component {
             <View>
                 <StatusBar barStyle="dark-content"/>
                 <SafeAreaView>
-                    <ScrollView>
+                    <ScrollView
+                        showsVerticalScrollIndicator={false}>
 
 
                         <SignForm/>

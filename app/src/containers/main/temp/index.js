@@ -17,6 +17,7 @@ export default class Test2Screen extends Component {
                 <StatusBar barStyle="dark-content"/>
                 <SafeAreaView>
                     <ScrollView
+                        showsVerticalScrollIndicator={false}
                         keyboardShouldPersistTaps='true'>
 
                     </ScrollView>

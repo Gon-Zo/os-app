@@ -30,7 +30,9 @@ export default class HomeScreen extends Component {
             <View style={{width: '100%', height: '100%', backgroundColor: '#f00'}}>
                 <StatusBar barStyle="dark-content"/>
                 <SafeAreaView style={{width: '100%', height: '100%', backgroundColor: '#f0f'}}>
-                    <ScrollView style={{backgroundColor: '#e5e5e5'}}>
+                    <ScrollView
+                        showsVerticalScrollIndicator={false}
+                        style={{backgroundColor: '#e5e5e5'}}>
                         <ImgBanner/>
                         <CategoryGroup/>
                         <SearchBox/>
