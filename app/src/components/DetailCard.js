@@ -8,9 +8,9 @@ import {
     Image,
     Text
 } from 'react-native';
-import {Layout, Button, Icon} from "react-native-ui-kitten";
-import IconButton from "./IconButton";
-import {ShoppingCartIcon, StarIcon} from '../public/Icon'
+import {Layout, Button} from "react-native-ui-kitten";
+import Icon from 'react-native-vector-icons/FontAwesome'
+
 
 // StarUI
 class StarIconLayout extends Component {
@@ -18,7 +18,8 @@ class StarIconLayout extends Component {
     render() {
         return (
             <View style={styles.starWrap}>
-                <IconButton icon={StarIcon}/>
+                <Icon name='star' size={30} color='#f00'
+                      onPress={()=>{alert("test success >> value is " + this.state.inputValue)}}/>
             </View>
         );
     }
@@ -74,7 +75,8 @@ export default class DetailCard extends Component {
                 <DetailImg/>
                 <DetailTitle title={title}/>
                 <View style={styles.buttonGroup}>
-                        <IconButton icon={ShoppingCartIcon}/>
+                    <Icon name='shopping-cart' size={30} color='#f00'
+                          onPress={()=>{alert("test success >> value is " + this.state.inputValue)}}/>
                 </View>
             </Layout>
         );
