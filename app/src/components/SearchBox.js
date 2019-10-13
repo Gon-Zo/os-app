@@ -2,14 +2,12 @@ import React, {Component} from 'react';
 import {StyleSheet, View} from 'react-native';
 import {Button, Input, Layout} from "react-native-ui-kitten";
 import Icon from 'react-native-vector-icons/FontAwesome';
+import {connect} from 'react-redux'
+import ActionCreators from "../actions";
 
-export const FacebookIcon = (style) => (
-    <Icon name='search' {...style} />
-);
-
-export default class SearchBox extends Component {
+class SearchBox extends Component {
     constructor(props) {
-        super(props)
+        super(props);
         this.state = {
             inputValue: ''
         }
@@ -28,19 +26,22 @@ export default class SearchBox extends Component {
                     value={this.state.inputValue}
                     onChangeText={this.onInputValueChange}
                 />
-                <Icon name='search' size={30} color='#f00' 
+                <Icon name='search' size={30} color='#f00'
                       style={styles.btnStyle}
-                      onPress={()=>{alert("test success >> value is " + this.state.inputValue)}}/>
+                      onPress={() => {
+                          this.props.inputSearch(this.state.inputValue)
+                      }}/>
                 {/*<Button style={styles.btnStyle} icon={FacebookIcon} onPress={()=>{alert("test succ >> " + this.state.inputValue)}}></Button>*/}
             </View>
         );
     }
 }
 
+
 const styles = StyleSheet.create({
     wrap: {
         width: '100%',
-        height: 50 ,
+        height: 50,
         position: "relative",
         backgroundColor: '#0ff',
     },
@@ -51,18 +52,34 @@ const styles = StyleSheet.create({
         // left: 0
         width: '85%',
         height: 50,
-        marginLeft : 5 ,
+        marginLeft: 5,
         borderRadius: 100,
     },
 
     btnStyle: {
         width: 40,
         height: 40,
-        backgroundColor : '#000',
+        backgroundColor: '#000',
         position: "absolute",
         top: 5,
         right: 5,
         borderRadius: 10,
-        textAlign : 'center',
+        textAlign: 'center',
     }
 });
+
+function mapStateToProps(state) {
+    return {
+        search: state.user.search
+    }
+}
+
+function mapDispatchToProps(dispatch) {
+    return {
+        inputSearch: (text) => {
+            dispatch(ActionCreators.searchFn(text))
+        }
+    }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(SearchBox)
