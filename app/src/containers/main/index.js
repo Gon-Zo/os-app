@@ -5,25 +5,37 @@ import HomeScreen from "./home";
 import Test2Screen from "./temp";
 
 
-import Icon from 'react-native-vector-icons/FontAwesome';
+import * as icon from "@fortawesome/free-solid-svg-icons";
+import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome'
+
 import React from "react";
+import BasketScreen from "./basket";
+import EtcScreen from "./etc";
+import StoreScreen from "./store";
 
 
 const MainRoot = createBottomTabNavigator({
-    Temp: {screen: Test2Screen},
-    Setting: {screen: SettingScreen},
+    Etc: {screen: EtcScreen},
+    Basket: {screen: BasketScreen},
+    Store: {screen: StoreScreen},
+    // Temp: {screen: Test2Screen},
     Home: {screen: HomeScreen, navigationOptions: {}},
 }, {
     defaultNavigationOptions: ({navigation}) => ({
         // custom tab bar
         tabBarIcon: ({focused, horizontal, tintColor}) => {
             const {routeName} = navigation.state;
-            return <Icon name={getIcon(routeName)} size={24} color={tintColor}/>
+
+            // return <Icon name={getIcon(routeName)} size={24} color={tintColor}/>
+            return <FontAwesomeIcon icon={test(routeName)} size={20} color={tintColor} />
         },
     }),
     tabBarOptions: {
-        activeTintColor: 'tomato',
-        inactiveTintColor: 'gray',
+        // 버튼 사용시
+        activeTintColor: '#000',
+        // 비사용 시
+        inactiveTintColor: '#c9c9c9',
+        showLabel: false
     },
 });
 
@@ -35,10 +47,33 @@ function getIcon(tapName) {
             return "cog";
         case "Temp":
             return "inbox";
+        case "Basket":
+            return "shopping-cart";
+        case "Etc":
+            return "ellipsis-h";
         default:
             return "home";
     }
 }
 
+
+function test(tapName) {
+    switch (tapName) {
+        case "Home" :
+            return icon.faHome;
+        case "Setting":
+            return icon.faCog;
+        case "Temp":
+            return icon.faInbox;
+        case "Basket":
+            return icon.faShoppingCart;
+        case "Etc":
+            return icon.faEllipsisH;
+        case "Store":
+            return icon.faStore;
+        default:
+            return icon.faHotel;
+    }
+}
 
 export default MainRoot

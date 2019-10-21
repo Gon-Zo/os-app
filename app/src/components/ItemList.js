@@ -1,18 +1,27 @@
 import React, {Component} from 'react';
 import {View, Image, TouchableOpacity} from 'react-native';
 import {Layout, Text} from "react-native-ui-kitten";
+import {createDrawerNavigator} from "react-navigation-drawer";
+import DetailNav from "../containers/single/detail";
+
+
 
 const items = [
     {title: '물냉면', price: '100,00원'},
     {title: '비빔면', price: '100,00원'},
     {title: 'test3', price: '100,00원'},
     {title: 'test4', price: '100,00원'},
-]
+];
 
 class ItemCard extends Component {
     render() {
         return (
-            <View style={{
+            <TouchableOpacity
+                onPress={()=>{
+                    this.props.navigation.navigate('Detail');
+                }}
+                activeOpacity={1}
+                style={{
                 width: 180,
                 height: 200,
                 backgroundColor: '#0f0',
@@ -32,7 +41,7 @@ class ItemCard extends Component {
                     marginTop: 5
                 }}>{this.props.title}</Text>
                 <Text style={{flexDirection: 'row',}}>{this.props.price}</Text>
-            </View>
+            </TouchableOpacity>
         )
     }
 }
@@ -42,7 +51,7 @@ export default class ItemList extends Component {
 
     renderItem(title, price) {
         return (
-            <ItemCard title={title} price={price}/>
+            <ItemCard navigation={this.props.navigation} title={title} price={price}/>
         )
     }
 
