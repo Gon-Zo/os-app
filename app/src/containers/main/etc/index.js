@@ -4,7 +4,7 @@ import {Button, Layout} from "react-native-ui-kitten";
 import ProfileCard from "../../../components/ProfileCard";
 import MenuGroup from "../../../components/update/MenuGroup";
 import {connect} from 'react-redux'
-import CommTest from "../../../components/update/test/ComTest";
+import RollingTextBar from "../../../components/update/RollingTextBar";
 
 
 class EtcScreen extends Component {
@@ -42,7 +42,7 @@ class EtcScreen extends Component {
                         }}>
                         <ProfileCard navigation={this.props.navigation}/>
 
-                        <CommTest/>
+                        <RollingTextBar/>
 
 
                         {/*<MenuGroup/>*/}
