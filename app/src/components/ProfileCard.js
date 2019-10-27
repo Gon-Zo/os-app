@@ -1,8 +1,10 @@
 import React, {Component} from 'react';
-import {ScrollView, StyleSheet, View, Image} from 'react-native';
+import {ScrollView, StyleSheet, View, Image, TouchableOpacity} from 'react-native';
+import {WebView} from 'react-native-webview'
 import {Text, Layout, Button} from "react-native-ui-kitten";
 import {connect} from "react-redux";
 import Icon from 'react-native-vector-icons/FontAwesome';
+import TextButton from "./update/TextButton";
 
 // DEMO DATA
 const userInfo = {
@@ -33,10 +35,12 @@ class Profile extends Component {
 
     render() {
         return (
-            <View>
+            <View style={styles.wrap}>
                 <View style={styles.iconWrap}>
                     {/*<IconButton icon={EditIcon}/>*/}
-                    <Icon name='pencil-square-o' size={40} color='#424242' onPress={()=>{alert("start to test")}}/>
+                    <Icon name='pencil-square-o' size={40} color='#424242' onPress={() => {
+                        alert("start to test")
+                    }}/>
                 </View>
 
                 <View style={styles.cardWrap}>
@@ -64,12 +68,54 @@ class Profile extends Component {
     }
 }
 
+// ()=>{ this.props.navigation.navigate('Sign')}
+
+// {/*<WebView*/}
+// {/*    source={{uri: 'https://github.com/facebook/react-native'}}*/}
+// {/*    style={{marginTop: 20}}*/}
+// {/*/>*/}
+
+
 class LoginBtn extends Component {
+
+    _RenderTest() {
+
+        console.log("WEB VIEW UP");
+
+        return (
+            <WebView
+                originWhitelist={['*']}
+                source={{html: '<h1>Hello world</h1>'}}
+            />
+        )
+    }
+
     render() {
         return (
-            <Button
-                navigation={this.props.navigation}
-                onPress={() => this.props.navigation.navigate('Login')}>Login</Button>
+            <View style={{
+                width: '100%',
+                height: 300,
+                backgroundColor: '#fff',
+                alignItems: 'center',
+                justifyContent: 'center'
+            }}>
+                <Button
+                    style={{
+                        width: 200,
+                        height: 50,
+                        margin: 5,
+                    }}
+                    navigation={this.props.navigation}
+                    onPress={() => this.props.navigation.navigate('Login')}> 로그인하기 </Button>
+
+                <TextButton title={'회원 가입하기'} onPress={() => {
+                    this._RenderTest()
+                }}></TextButton>
+
+                <TextButton title={'카카오 로그인'} onPress={() => {
+                    alert("kakao test success!!")
+                }}/>
+            </View>
         );
     }
 }
@@ -78,14 +124,13 @@ class ProfileCard extends Component {
 
     renderProfileCard() {
         return this.props.state ?
-            <Profile/> :
-            <LoginBtn navigation={this.props.navigation}/>
+            <Profile/> : <LoginBtn navigation={this.props.navigation}/>
     }
 
 
     render() {
         return (
-            <Layout style={styles.wrap}>
+            <Layout>
                 {this.renderProfileCard()}
             </Layout>
         );
@@ -99,12 +144,14 @@ function mapStateToProps(state) {
 }
 
 const styles = StyleSheet.create({
+
     wrap: {
         width: '100%',
         height: 300,
         backgroundColor: '#fff',
         marginTop: 10,
     },
+
     iconWrap: {
         width: '100%',
         height: 40,
