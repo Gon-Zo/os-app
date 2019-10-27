@@ -8,23 +8,27 @@ import {
     StatusBar,
     Image,
     TouchableOpacity,
-    ImageBackground
+    ImageBackground,
+    Picker
 } from 'react-native';
 import {Layout} from "react-native-ui-kitten";
 import Header from "../../../components/update/Header";
 import CategoryList from "../../../components/update/test/CategoryList";
 import ItemList from "../../../components/update/Store/ItemList";
-
+import SelectBox from "../../../components/update/Store/SelectBox";
 
 
 export default class StoreScreen extends Component {
 
+
+
+
     render() {
         console.disableYellowBox = true;
         return (
-            <Layout>
+            <Layout style={{flex: 1}}>
                 <StatusBar barStyle="dark-content"/>
-                <SafeAreaView>
+                <SafeAreaView style={{flex: 1}}>
 
                     <Header type={'S'}/>
 
@@ -32,22 +36,10 @@ export default class StoreScreen extends Component {
 
                     <ScrollView
                         showsVerticalScrollIndicator={false}
-                        style={{
-                            marginBottom: 150,
-                            flexGrow: 1
-                        }}
-                        removeClippedSubviews={false}
+                        style={{flex: 1, flexGrow: 1 , marginTop : 5}}
                     >
 
-                        <View style={{
-                            width : '100%' ,
-                            height:  30 ,
-                            backgroundColor : '#f00'
-                        }}>
-                        </View>
-
-
-
+                        <SelectBox/>
                         <ItemList/>
 
                     </ScrollView>
@@ -56,23 +48,3 @@ export default class StoreScreen extends Component {
         );
     }
 }
-
-// const styles = StyleSheet.create({
-//     parent: {
-//         // width: '100%',
-//         flex: 1,
-//         flexDirection: 'row',
-//         flexWrap: 'wrap',
-//     },
-//     child: {
-//         width: '48%',
-//         margin: '1%',
-//         aspectRatio: 1,
-//         position: 'relative'
-//     },
-//     test: {
-//         width: '100%',
-//         height: 200,
-//         padding: 10,
-//     }
-// })
