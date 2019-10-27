@@ -1,8 +1,7 @@
 import React, {Component} from 'react';
 import {SafeAreaView, StyleSheet, ScrollView, View, Text, StatusBar,} from 'react-native';
 import * as screen from "../../public/styles/comm";
-import SearchForm2 from "./SearchForm2";
-import SearchForm3 from "./searchForm3";
+import SearchForm3 from "./Store/SearchForm3";
 
 export default class Header extends Component {
 
@@ -14,7 +13,7 @@ export default class Header extends Component {
     _renderTitle() {
         let type = this.props.type;
         switch (type) {
-            case 's':
+            case 'S':
                 return '스토어';
             case 'B':
                 return '장바구니';
@@ -24,7 +23,7 @@ export default class Header extends Component {
     }
 
     _renderSearchForm() {
-        if (this.props.type === 's') {
+        if (this.props.type === 'S') {
             return (
                 <SearchForm3/>
             )
@@ -40,14 +39,18 @@ export default class Header extends Component {
                 justifyContent: 'center',
             }}>
 
-                <View>
+                <View style={{
+                    position: "relative",
+                }}>
                     <Text style={{
                         fontSize: 25,
                         marginLeft: 10,
-                        fontWeight: 'bold'
+                        fontWeight: 'bold',
+                        fontFamily : 'BMHANNA'
                     }}>
                         {this._renderTitle()}
                     </Text>
+                    {this._renderSearchForm()}
                 </View>
                 {/*    TitleBox end*/}
             </View>
