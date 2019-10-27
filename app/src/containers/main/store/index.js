@@ -1,15 +1,8 @@
 import React, {Component} from 'react';
 import {
     SafeAreaView,
-    StyleSheet,
-    Text,
     ScrollView,
-    View,
     StatusBar,
-    Image,
-    TouchableOpacity,
-    ImageBackground,
-    Picker
 } from 'react-native';
 import {Layout} from "react-native-ui-kitten";
 import Header from "../../../components/update/Header";
