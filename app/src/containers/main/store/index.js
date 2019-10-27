@@ -1,13 +1,24 @@
 import React, {Component} from 'react';
-import {SafeAreaView, StyleSheet, Text, ScrollView, View, StatusBar,} from 'react-native';
+import {
+    SafeAreaView,
+    StyleSheet,
+    Text,
+    ScrollView,
+    View,
+    StatusBar,
+    Image,
+    TouchableOpacity,
+    ImageBackground
+} from 'react-native';
 import {Layout} from "react-native-ui-kitten";
-import SearchForm from "../../../components/update/SearchForm";
-import * as screen from '../../../public/styles/comm'
-import SearchForm2 from "../../../components/update/SearchForm2";
 import Header from "../../../components/update/Header";
+import CategoryList from "../../../components/update/test/CategoryList";
+import ItemList from "../../../components/update/Store/ItemList";
+
 
 
 export default class StoreScreen extends Component {
+
     render() {
         console.disableYellowBox = true;
         return (
@@ -15,30 +26,53 @@ export default class StoreScreen extends Component {
                 <StatusBar barStyle="dark-content"/>
                 <SafeAreaView>
 
-                    <Header type={'s'} />
+                    <Header type={'S'}/>
+
+                    <CategoryList/>
 
                     <ScrollView
-                        showsVerticalScrollIndicator={false}>
-                        <View>
+                        showsVerticalScrollIndicator={false}
+                        style={{
+                            marginBottom: 150,
+                            flexGrow: 1
+                        }}
+                        removeClippedSubviews={false}
+                    >
 
-                            {/*<SearchForm/>*/}
-
-                            {/*<SearchForm2/>*/}
-
-                            {/*<Layout>*/}
-                            {/*    <View>*/}
-                            {/*        <View style={{*/}
-                            {/*            width : */}
-                            {/*        }}>*/}
-                            {/*        </View>*/}
-                            {/*    </View>*/}
-                            {/*</Layout>*/}
-                            {/* store content*/}
-
+                        <View style={{
+                            width : '100%' ,
+                            height:  30 ,
+                            backgroundColor : '#f00'
+                        }}>
                         </View>
+
+
+
+                        <ItemList/>
+
                     </ScrollView>
                 </SafeAreaView>
             </Layout>
         );
     }
 }
+
+// const styles = StyleSheet.create({
+//     parent: {
+//         // width: '100%',
+//         flex: 1,
+//         flexDirection: 'row',
+//         flexWrap: 'wrap',
+//     },
+//     child: {
+//         width: '48%',
+//         margin: '1%',
+//         aspectRatio: 1,
+//         position: 'relative'
+//     },
+//     test: {
+//         width: '100%',
+//         height: 200,
+//         padding: 10,
+//     }
+// })
