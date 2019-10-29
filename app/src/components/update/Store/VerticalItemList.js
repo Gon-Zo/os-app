@@ -9,6 +9,7 @@ import {
     TouchableOpacity,
     ImageBackground,
 } from 'react-native';
+import {Layout} from "react-native-ui-kitten";
 
 var tempArray = [
     {idx: 1},
@@ -25,10 +26,9 @@ var tempArray = [
 
 class ItemCard extends Component{
 
-
     render(){
         return(
-            <View style={[styles.child, {backgroundColor: 'transparent'}]} key={this.props.key}>
+            <Layout style={[styles.child, {backgroundColor: 'transparent'}]} key={this.props.key}>
                 <TouchableOpacity style={styles.test} onPress={() => {
                     alert("test success")
                 }}>
@@ -72,13 +72,13 @@ class ItemCard extends Component{
                         </ImageBackground>
                     </View>
                 </TouchableOpacity>
-            </View>
+            </Layout>
         )
     }
 }
 
 
-export default class ItemList extends Component {
+export default class VerticalItemList extends Component {
 
     _renderCardTest(text , index) {
         return (
@@ -98,7 +98,6 @@ export default class ItemList extends Component {
 const styles = StyleSheet.create({
     parent: {
         // width: '100%',
-        flex: 1,
         flexDirection: 'row',
         flexWrap: 'wrap',
     },
