@@ -7,7 +7,7 @@ import {
     Text,
     StatusBar, TextInput,
 } from 'react-native';
-import InputText from "./update/sign/InputText";
+import InputText from "./update/custom/InputText";
 import {TEXT_INPUT} from "../public/types/State";
 
 export default class SignForm extends Component {

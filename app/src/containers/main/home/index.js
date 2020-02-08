@@ -1,12 +1,7 @@
 import React, {Component} from 'react';
-import {Layout, Text, Button} from 'react-native-ui-kitten'
 import {SafeAreaView, View, StyleSheet, ScrollView, StatusBar, Image, Dimensions, TextInput,} from 'react-native';
 import ImgBanner from "../../../components/ImgBanner";
-import CategoryGroup from "../../../components/CategoryGroup";
-import ItemList from "../../../components/update/ItemList";
-
-var title = "인기상품";
-var title2 = "최신상품";
+import HorizontalItemList from "../../../components/update/HorizontalItemList";
 
 export default class HomeScreen extends Component {
 
@@ -15,16 +10,16 @@ export default class HomeScreen extends Component {
         // this.state = {nav: this.props.navigation}
     }
 
-    static navigationOptions = {
-        headerTitle: 'Home',
-
-        headerLeft: (
-            <Button onPress={() => navigation.navigate('Menu')}>Left</Button>
-        ),
-        headerRight: (
-            <Button onPress={() => alert("test success")}>Right</Button>
-        )
-    };
+    // static navigationOptions = {
+    //     headerTitle: 'Home',
+    //
+    //     headerLeft: (
+    //         <Button onPress={() => navigation.navigate('Menu')}>Left</Button>
+    //     ),
+    //     headerRight: (
+    //         <Button onPress={() => alert("test success")}>Right</Button>
+    //     )
+    // };
 
     render() {
         console.disableYellowBox = true;
@@ -39,8 +34,8 @@ export default class HomeScreen extends Component {
 
                         {/*<CategoryGroup/>*/}
 
-                        <ItemList title={title}  navigation={this.props.navigation}/>
-                        <ItemList title={title2} navigation={this.props.navigation}/>
+                        <HorizontalItemList title={'인기 상품'} navigation={this.props.navigation}/>
+                        <HorizontalItemList title={'최신 상품'} navigation={this.props.navigation}/>
                     </ScrollView>
                 </SafeAreaView>
             </View>

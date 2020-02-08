@@ -1,43 +1,33 @@
 import React, {Component} from 'react';
-import {
-    SafeAreaView,
-    ScrollView,
-    StatusBar,
-} from 'react-native';
-import {Layout} from "react-native-ui-kitten";
+import {SafeAreaView, View, StyleSheet, ScrollView, StatusBar, Image, Dimensions, TextInput,} from 'react-native';
+import SelectBox from "../../../components/update/Store/SelectBox";
+import VerticalItemList from "../../../components/update/Store/VerticalItemList";
 import Header from "../../../components/update/Header";
 import CategoryList from "../../../components/update/test/CategoryList";
-import ItemList from "../../../components/update/Store/ItemList";
-import SelectBox from "../../../components/update/Store/SelectBox";
-
 
 export default class StoreScreen extends Component {
 
-
-
+    constructor(props) {
+        super(props);
+    }
 
     render() {
         console.disableYellowBox = true;
         return (
-            <Layout style={{flex: 1}}>
+            <View style={{width: '100%', height: '100%', backgroundColor: '#f00'}}>
                 <StatusBar barStyle="dark-content"/>
-                <SafeAreaView style={{flex: 1}}>
 
+                <SafeAreaView style={{width: '100%', height: '100%', backgroundColor: '#f0f'}}>
                     <Header type={'S'}/>
-
                     <CategoryList/>
-
                     <ScrollView
                         showsVerticalScrollIndicator={false}
-                        style={{flex: 1, flexGrow: 1 , marginTop : 5}}
-                    >
-
+                        style={{width: '100%', height: '100%', backgroundColor: '#e5e5e5'}}>
                         <SelectBox/>
-                        <ItemList/>
-
+                        <VerticalItemList/>
                     </ScrollView>
                 </SafeAreaView>
-            </Layout>
+            </View>
         );
     }
 }

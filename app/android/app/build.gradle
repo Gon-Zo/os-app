@@ -188,9 +188,12 @@ android {
 }
 
 dependencies {
+    implementation project(':react-native-image-picker')
     implementation project(':react-native-webview')
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation "com.facebook.react:react-native:+"  // From node_modules
+    // add
+//    implementation 'com.github.react-community:react-native-image-picker:v0.25.4'
 
     if (enableHermes) {
       def hermesPath = "../../node_modules/hermesvm/android/";

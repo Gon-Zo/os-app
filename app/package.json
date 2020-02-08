@@ -5,7 +5,9 @@
   "scripts": {
     "start": "react-native start",
     "android": "react-native run-android",
-    "ios" : "react-native run-ios --device ‘Pjk iPhone'",
+    "android_log": "react-native log-android",
+    "re_device": "adb shell input text 'RR'",
+    "ios": "react-native run-ios --device ‘Pjk iPhone'",
     "test": "jest",
     "lint": "eslint ."
   },
@@ -22,6 +24,7 @@
     "react-native": "0.60.5",
     "react-native-banner-carousel": "^1.0.3",
     "react-native-gesture-handler": "^1.4.1",
+    "react-native-image-picker": "^1.1.0",
     "react-native-reanimated": "^1.2.0",
     "react-native-svg": "^9.11.1",
     "react-native-ui-kitten": "4.2.0-beta.2",
@@ -48,5 +51,10 @@
   },
   "jest": {
     "preset": "react-native"
+  },
+  "rnpm": {
+    "assets": [
+      "./src/public/assets/fonts"
+    ]
   }
 }

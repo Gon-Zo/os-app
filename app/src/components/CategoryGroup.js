@@ -13,7 +13,6 @@ const images = [
     {src: require("../public/img/test2.jpg"), title: "col6"},
     {src: require("../public/img/test2.jpg"), title: "col7"},
     {src: require("../public/img/test2.jpg"), title: "col8"},
-
 ];
 
 // flex: 1,
@@ -79,15 +78,12 @@ const styles = StyleSheet.create({
     footerWrapperNC: {
         flexDirection: 'column',
     },
-
-
     buttonGroup: {
         height: 200,
         backgroundColor: '#fff',
         margin: 10,
         borderWidth: 0.5,
     },
-
     cardWrap: {
         flexWrap: 'wrap',
         alignItems: 'flex-start',
@@ -95,7 +91,6 @@ const styles = StyleSheet.create({
         backgroundColor: '#f00',
         marginTop: 30,
     },
-
     cardBox: {
         backgroundColor: '#0ff',
         flexDirection: 'column',

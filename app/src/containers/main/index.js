@@ -15,19 +15,19 @@ import StoreScreen from "./store";
 
 
 const MainRoot = createBottomTabNavigator({
+    Temp: {screen: Test2Screen},
     Etc: {screen: EtcScreen},
-    Basket: {screen: BasketScreen},
+    Test: {screen: Test2Screen},
     Store: {screen: StoreScreen},
-    // Temp: {screen: Test2Screen},
+    Basket: {screen: BasketScreen},
     Home: {screen: HomeScreen, navigationOptions: {}},
 }, {
     defaultNavigationOptions: ({navigation}) => ({
         // custom tab bar
         tabBarIcon: ({focused, horizontal, tintColor}) => {
             const {routeName} = navigation.state;
-
             // return <Icon name={getIcon(routeName)} size={24} color={tintColor}/>
-            return <FontAwesomeIcon icon={test(routeName)} size={20} color={tintColor} />
+            return <FontAwesomeIcon icon={test(routeName)} size={20} color={tintColor}/>
         },
     }),
     tabBarOptions: {
@@ -38,24 +38,6 @@ const MainRoot = createBottomTabNavigator({
         showLabel: false
     },
 });
-
-function getIcon(tapName) {
-    switch (tapName) {
-        case "Home" :
-            return "home";
-        case "Setting":
-            return "cog";
-        case "Temp":
-            return "inbox";
-        case "Basket":
-            return "shopping-cart";
-        case "Etc":
-            return "ellipsis-h";
-        default:
-            return "home";
-    }
-}
-
 
 function test(tapName) {
     switch (tapName) {

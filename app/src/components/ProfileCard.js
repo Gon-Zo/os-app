@@ -3,8 +3,12 @@ import {ScrollView, StyleSheet, View, Image, TouchableOpacity} from 'react-nativ
 import {WebView} from 'react-native-webview'
 import {Text, Layout, Button} from "react-native-ui-kitten";
 import {connect} from "react-redux";
-import Icon from 'react-native-vector-icons/FontAwesome';
+import InputText from "./update/custom/InputText";
+import {FontAwesomeIcon} from "@fortawesome/react-native-fontawesome";
+import * as icon from '@fortawesome/free-solid-svg-icons'
 import TextButton from "./update/TextButton";
+import NotoSans from "./update/custom/NotoSans";
+import IconButton from "./update/custom/IconButton";
 
 // DEMO DATA
 const userInfo = {
@@ -35,46 +39,135 @@ class Profile extends Component {
 
     render() {
         return (
+
             <View style={styles.wrap}>
-                <View style={styles.iconWrap}>
-                    {/*<IconButton icon={EditIcon}/>*/}
-                    <Icon name='pencil-square-o' size={40} color='#424242' onPress={() => {
-                        alert("start to test")
+                <View style={{
+                    width: "100%",
+                    height: 100,
+                    backgroundColor: '#000',
+                    marginTop: 30,
+                    flexDirection: 'row',
+                    alignItems : 'center',
+                    justifyContent : 'center'
+                }}>
+
+                    <View style={{
+                        width: 80,
+                        height: 80,
+                        backgroundColor: '#00f',
+                        borderRadius: 10,
+                        overflow: 'hidden',
+                        marginLeft : 5,
+                        marginRight : 5,
+                    }}>
+                        <Image
+                            style={{
+                                width: 80,
+                                height: 80,
+                            }}
+                            source={require("../public/img/default.png")}/>
+                    </View>
+
+                    <View style={{backgroundColor: '#f0f',
+                        marginLeft : 5,
+                        marginRight : 5,
+                    }}>
+                        <View>
+                            <NotoSans
+                                type={'Medium'}
+                                style={{
+                                    color: '#fff',
+                                    fontSize: 13
+                                }} text={'wh*t*1*8*9'}/>
+                        </View>
+                        <View>
+                            <NotoSans
+                                type={'Medium'}
+                                style={{
+                                    color: '#fff',
+                                    fontSize: 16
+                                }}
+                                text={'Customer'}/>
+                        </View>
+                    </View>
+
+                    <View style={{
+                        marginLeft : 5,
+                        marginRight : 5,
+                    }}>
+                        <Button>My Info</Button>
+                        <Button>My Store Info</Button>
+                    </View>
+                </View>
+
+                <View style={{
+                    width: '100%',
+                    height: 60,
+                    backgroundColor: '#fff',
+                    flexDirection: 'row',
+                    alignItems: 'center',
+                    justifyContent: 'center'
+                }}>
+                    <Button style={{
+                        width: 60,
+                        height: 60,
+                        marginLeft: 5,
+                        marginRight: 5
+                    }}>
+                    </Button>
+                    <Button style={{
+                        width: 60,
+                        height: 60,
+                        marginLeft: 5,
+                        marginRight: 5
                     }}/>
+                    <IconButton/>
                 </View>
 
-                <View style={styles.cardWrap}>
+                <View style={{
+                    width : '100%',
+                    height : 50
+                }}>
                     <Image
-                        style={{
-                            width: 130,
-                            height: 130,
-                            borderRadius: 50,
-                            borderWidth: 1,
-                            borderColor: '#7f7f7f'
-                        }}
-                        source={require("../public/img/default.png")}
-                    />
+                    style={{
+                        width:'100%',
+                        height : 70,
+                        backgroundColor: '#00f',
+                        resizeMode: 'stretch'
+                    }}
+                    source={require("../public/img/wideTest.jpeg")}/>
                 </View>
-                {/* Image Layout end */}
 
-                <View style={styles.infoCard}>
-                    {this.renderTextCard(userInfo['id'])}
-                    {this.renderTextCard(userInfo['name'])}
-                    {this.renderTextCard(userInfo['phone'])}
-                </View>
+                {/*<View style={styles.iconWrap}>*/}
+                {/*    /!*<IconButton icon={EditIcon}/>*!/*/}
+                {/*    <Icon name='pencil-square-o' size={40} color='#424242' onPress={() => {*/}
+                {/*        alert("start to test")*/}
+                {/*    }}/>*/}
+                {/*</View>*/}
+                {/*<View style={styles.cardWrap}>*/}
+                {/*    <Image*/}
+                {/*        style={{*/}
+                {/*            width: 130,*/}
+                {/*            height: 130,*/}
+                {/*            borderRadius: 50,*/}
+                {/*            borderWidth: 1,*/}
+                {/*            borderColor: '#7f7f7f'*/}
+                {/*        }}*/}
+                {/*        source={require("../public/img/default.png")}*/}
+                {/*    />*/}
+                {/*</View>*/}
+                {/* Image Layout end */}
+                {/*<View style={styles.infoCard}>*/}
+                {/*    {this.renderTextCard(userInfo['id'])}*/}
+                {/*    {this.renderTextCard(userInfo['name'])}*/}
+                {/*    {this.renderTextCard(userInfo['phone'])}*/}
+                {/*</View>*/}
                 {/*User Info */}
+
             </View>
         );
     }
 }
-
-// ()=>{ this.props.navigation.navigate('Sign')}
-
-// {/*<WebView*/}
-// {/*    source={{uri: 'https://github.com/facebook/react-native'}}*/}
-// {/*    style={{marginTop: 20}}*/}
-// {/*/>*/}
-
 
 class LoginBtn extends Component {
 
@@ -109,7 +202,7 @@ class LoginBtn extends Component {
                     onPress={() => this.props.navigation.navigate('Login')}> 로그인하기 </Button>
 
                 <TextButton title={'회원 가입하기'} onPress={() => {
-                    this._RenderTest()
+                    this.props.navigation.navigate('Sign')
                 }}></TextButton>
 
                 <TextButton title={'카카오 로그인'} onPress={() => {
@@ -123,8 +216,11 @@ class LoginBtn extends Component {
 class ProfileCard extends Component {
 
     renderProfileCard() {
-        return this.props.state ?
-            <Profile/> : <LoginBtn navigation={this.props.navigation}/>
+        return (
+            <Profile/>
+        )
+        // return this.props.state ?
+        //     <Profile/> : <LoginBtn navigation={this.props.navigation}/>
     }
 
 
@@ -148,7 +244,7 @@ const styles = StyleSheet.create({
     wrap: {
         width: '100%',
         height: 300,
-        backgroundColor: '#fff',
+        backgroundColor: '#f00',
         marginTop: 10,
     },
 

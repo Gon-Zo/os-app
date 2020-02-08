@@ -73,6 +73,18 @@
 		<string>Zocial.ttf</string>
 		<string>BMHANNA_11yrs_ttf.ttf</string>
 		<string>BMHANNA.ttf</string>
+		<string>NotoSansKR-Black.otf</string>
+		<string>NotoSansKR-Bold.otf</string>
+		<string>NotoSansKR-Light.otf</string>
+		<string>NotoSansKR-Medium.otf</string>
+		<string>NotoSansKR-Regular.otf</string>
+		<string>NotoSansKR-Thin.otf</string>
+		<string>NotoSansBlack.otf</string>
+		<string>NotoSansBold.otf</string>
+		<string>NotoSansLight.otf</string>
+		<string>NotoSansMedium.otf</string>
+		<string>NotoSansRegular.otf</string>
+		<string>NotoSansThin.otf</string>
 	</array>
 </dict>
 </plist>

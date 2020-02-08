@@ -12,10 +12,10 @@ import SignNav from "../single/sign";
 
 const MyApp = createStackNavigator({
     Main: MainRoot,
+    Sign : SignNav,
     Update: FormNav,
     Login: LoginNav,
     Detail : DetailNav,
-    Sign : SignNav
 }, {headerMode: "none"});
 
 const AppRouter = createAppContainer(MyApp);

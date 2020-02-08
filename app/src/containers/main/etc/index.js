@@ -2,15 +2,19 @@ import React, {Component} from 'react';
 import {SafeAreaView, StyleSheet, ScrollView, View, Text, StatusBar,} from 'react-native';
 import {Button, Layout} from "react-native-ui-kitten";
 import ProfileCard from "../../../components/ProfileCard";
-import MenuGroup from "../../../components/update/MenuGroup";
 import {connect} from 'react-redux'
 import RollingTextBar from "../../../components/update/RollingTextBar";
-
+import {WebView} from 'react-native'
 
 class EtcScreen extends Component {
 
     constructor(props, context) {
         super(props, context)
+    }
+
+    _LogoutFunc(){
+        alert("Logout success")
+        console.log("success to logout")
     }
 
     _renderLogoutButton() {
@@ -20,9 +24,7 @@ class EtcScreen extends Component {
                     marginTop: 10,
                     marginBottom: 10
                 }}>
-                    <Button onPress={() => {
-                        alert("Logout")
-                    }}>Logout</Button>
+                    <Button onPress={() => {this._LogoutFunc()}}>Logout</Button>
                 </View>
             )
         }
@@ -37,13 +39,12 @@ class EtcScreen extends Component {
                 <SafeAreaView>
                     <ScrollView
                         showsVerticalScrollIndicator={false}
-                        style={{
-                            backgroundColor: "#c9c9c9"
-                        }}>
+                        style={{backgroundColor: "#c9c9c9"}}>
                         <ProfileCard navigation={this.props.navigation}/>
 
                         <RollingTextBar/>
 
+                        {/*<MenuGroup2/>*/}
 
                         {/*<MenuGroup/>*/}
 
