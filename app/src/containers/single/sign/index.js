@@ -58,8 +58,6 @@ class SignScreen extends Component {
                             </View>
 
 
-
-
                             {/*<View style={{*/}
                             {/*    backgroundColor: '#FF0',*/}
                             {/*    padding: 30,*/}

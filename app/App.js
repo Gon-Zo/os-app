@@ -9,18 +9,16 @@ import * as screen from './src/public/styles/comm'
 
 const store = initStore();
 
-export default class App extends Component {
-    render() {
-        return (
-            <ApplicationProvider mapping={mapping} theme={theme}>
-                <Provider store={store}>
-                    <IconRegistry icons={EvaIconsPack}/>
-                    {displayInfo()}
-                    <AppRouter/>
-                </Provider>
-            </ApplicationProvider>
-        )
-    }
+export default () => {
+    return(
+        <ApplicationProvider mapping={mapping} theme={theme}>
+            <Provider store={store}>
+                <IconRegistry icons={EvaIconsPack}/>
+                {displayInfo()}
+                <AppRouter/>
+            </Provider>
+        </ApplicationProvider>
+    )
 }
 
 function displayInfo() {
