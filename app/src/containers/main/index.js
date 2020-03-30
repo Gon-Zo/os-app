@@ -12,10 +12,10 @@ import React from "react";
 import BasketScreen from "./basket";
 import EtcScreen from "./etc";
 import StoreScreen from "./store";
-import AppTemp from "./AppTemp";
+// import AppTemp from "./AppTemp";
 
 const MainRoot = createBottomTabNavigator({
-    Temp: {screen: AppTemp},
+    // Temp: {screen: AppTemp},
     Etc: {screen: EtcScreen},
     Test: {screen: Test2Screen},
     Store: {screen: StoreScreen},
