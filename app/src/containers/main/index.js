@@ -12,10 +12,10 @@ import React from "react";
 import BasketScreen from "./basket";
 import EtcScreen from "./etc";
 import StoreScreen from "./store";
-
+import AppTemp from "./AppTemp";
 
 const MainRoot = createBottomTabNavigator({
-    Temp: {screen: Test2Screen},
+    Temp: {screen: AppTemp},
     Etc: {screen: EtcScreen},
     Test: {screen: Test2Screen},
     Store: {screen: StoreScreen},
@@ -27,7 +27,7 @@ const MainRoot = createBottomTabNavigator({
         tabBarIcon: ({focused, horizontal, tintColor}) => {
             const {routeName} = navigation.state;
             // return <Icon name={getIcon(routeName)} size={24} color={tintColor}/>
-            return <FontAwesomeIcon icon={test(routeName)} size={20} color={tintColor}/>
+            return <FontAwesomeIcon icon={_changeIcon(routeName)} size={20} color={tintColor}/>
         },
     }),
     tabBarOptions: {
@@ -39,7 +39,7 @@ const MainRoot = createBottomTabNavigator({
     },
 });
 
-function test(tapName) {
+function _changeIcon(tapName) {
     switch (tapName) {
         case "Home" :
             return icon.faHome;
