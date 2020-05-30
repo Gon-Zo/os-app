@@ -1,9 +1,14 @@
-npm install -g react-native-cli
+# React Native 
 
-react-native init [project name]
+1. React-Native Command 
 
-react-native start
 
-react-native run-ios
+    npm install -g react-native-cli
 
-react-native run-android 
+    react-native init [project name]
+
+    react-native start
+
+    react-native run-ios
+
+    react-native run-android 
