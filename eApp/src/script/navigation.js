@@ -1,31 +1,76 @@
-import {Navigation} from "react-native-navigation";
+import {Navigation } from "react-native-navigation";
 import React from 'react'
 
-import Home from './screen/home'
-import Store from './screen/store'
-import Search from './screen/search'
-import Setting from './screen/setting'
+import Home from './screen/home/index'
+import Store from './screen/store/index'
+import Search from './screen/search/index'
+import Setting from './screen/setting/index'
+
+import Icon from "react-native-vector-icons/dist/FontAwesome";
 
 Navigation.registerComponent('Home', () => Home);
 Navigation.registerComponent('Store', () => Store);
 Navigation.registerComponent('Search', () => Search);
 Navigation.registerComponent('Setting', () => Setting);
 
-let Nav = Navigation.events().registerAppLaunchedListener(()=>{
+let Nav = Navigation.events().registerAppLaunchedListener(() => {
+
     Navigation.setRoot({
-        root : {
+
+        root: {
+
             bottomTabs: {
-                children: [
+                id : "BOTTOM_TAB_LAYOUT" ,
+                children : [
+
                     {
-                        component: {
-                            name: 'Home',
+                        stack :{
+                            id: "HOME_LAYOUT",
+                            children : [
+                                {
+                                    component : {
+                                        id : "HOME_LAYOUT",
+                                        name : "Home",
+                                    }
+                                }
+                            ] ,
                             options : {
-                                statusBar : {
-                                    backgroundColor : "#c9c9c9"
+                                bottomTab : {
+                                    text  :"Home" ,
+                                    textColor : '#f0f' ,
+                                    // icon : () =>{
+                                    //     // return (<Icon name="glass"/>)
+                                    // }
+                                }
+                            }
+
+                        }
+                    },
+
+                    {
+                        stack :{
+                            id: "STORE_LAYOUT",
+                            children : [
+                                {
+                                    component : {
+                                        id : "main",
+                                        name : "Store",
+                                    }
+                                }
+                            ] ,
+                            options : {
+                                bottomTab : {
+                                    text  :"Store" ,
+                                    textColor : '#f0f'
                                 }
                             }
                         }
-                    },
+                    }
+
+
+
+
+
 
                 ]
             }
@@ -33,6 +78,5 @@ let Nav = Navigation.events().registerAppLaunchedListener(()=>{
         }
     })
 })
-
 
 export default Nav
