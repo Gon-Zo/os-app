@@ -38,9 +38,7 @@ let Nav = Navigation.events().registerAppLaunchedListener(() => {
                                 bottomTab : {
                                     text  :"Home" ,
                                     textColor : '#f0f' ,
-                                    // icon : () =>{
-                                    //     // return (<Icon name="glass"/>)
-                                    // }
+                                    icon : () => (<Icon name="glass"/>)
                                 }
                             }
 
