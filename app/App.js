@@ -1,19 +1,18 @@
 import React from 'react';
 import MainNavigation from "./src/js/screens/MainNavigation";
-import { PersistGate } from 'redux-persist/integration/react';
-import { Provider } from 'react-redux';
 
-import { store, persistor } from './store/store';
+import reducer from './src/js/reducers/index'
+import {createStore} from 'redux';
+import {Provider} from 'react-redux'
 
+const store = createStore( reducer );
 
-const App: () => React$Node = () => {
+const App : () => React$Node = () =>{
     return (
         <Provider store={store}>
-            <PersistGate loading={null} persistor={persistor}>
-                <MainNavigation/>
-            </PersistGate>
+            <MainNavigation/>
         </Provider>
-  );
-};
+    )
+}
 
 export default App;

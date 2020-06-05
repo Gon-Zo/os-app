@@ -1,13 +1,21 @@
+const INPUTACTION = "home/input"
+
+const OUTPUTACTION = "home/output"
+
+export const onInput = () => ({type: INPUTACTION})
+
+export const onOutput = () => ({type: OUTPUTACTION})
+
 const initData = {
     count : 0,
 }
 
 const reducer = (state = initData, action) => {
     switch (action.type) {
-        case "1":
+        case INPUTACTION:
             state.count += 1
             break;
-        case "2":
+        case OUTPUTACTION:
             state.count -= 1
             break;
     }
