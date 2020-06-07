@@ -1,4 +1,4 @@
-import { onCountData , onCountLoad , onCountError} from '../reducers/test'
+import {onCountData, onCountLoad, onCountError, onTxtLoad, onTxtError, onTxtData} from '../reducers/test'
 
 export const httpCount = function (dispatch, payload) {
     dispatch(onCountLoad())
@@ -8,3 +8,13 @@ export const httpCount = function (dispatch, payload) {
         dispatch(onCountError(e))
     }
 }
+
+export function httpTxt(dispatch , payload) {
+    dispatch(onTxtLoad())
+    try {
+        dispatch(onTxtData(payload))
+    }catch (e) {
+        dispatch(onTxtError(e))
+    }
+}
+

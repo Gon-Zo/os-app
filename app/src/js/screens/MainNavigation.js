@@ -17,6 +17,7 @@ const MainNavigation: () => React$Node = () => {
                 inactiveColor="#3e2465"
                 barStyle={{ backgroundColor: '#8c63fa' }}
             >
+
                 <Tab.Screen name="Test"
                             component={Test}
                             options={{

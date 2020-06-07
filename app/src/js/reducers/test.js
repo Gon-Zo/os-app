@@ -5,6 +5,11 @@ const ACTION_TYPE = {
         DATA: "count/input",
         LOAD: "count/load",
         ERROR: "count/error",
+    } ,
+    TXT : {
+        DATA  : "txt/data" ,
+        LOAD : "txt/load" ,
+        ERROR : "txt/error"
     }
 }
 
@@ -14,12 +19,23 @@ export const onCountLoad = () => ({type: ACTION_TYPE.COUNT.LOAD})
 
 export const onCountError = (e) => ({type: ACTION_TYPE.COUNT.ERROR, error: e})
 
+export const onTxtData = (payload) => ({type: ACTION_TYPE.TXT, data: payload})
+
+export const onTxtLoad = () => ({type : ACTION_TYPE.TXT.LOAD})
+
+export const onTxtError = (e) => ({type: ACTION_TYPE.TXT.ERROR, error: e})
+
 const initData = {
     count : {
         type : STATE_TYPE.S ,
         data : 0 ,
         error : null
     },
+    txt : {
+        type : STATE_TYPE.S ,
+        data : '' ,
+        error : null
+    }
 }
 
 const reducer = (state = initData, action) => {
@@ -39,6 +55,18 @@ const reducer = (state = initData, action) => {
             state.count.type = STATE_TYPE.E
             state.count.error = action.error
             break;
+
+        case ACTION_TYPE.TXT.DATA :
+            state.txt.type = STATE_TYPE.S
+            state.txt.data = action.data
+            break;
+        case ACTION_TYPE.TXT.LOAD :
+            state.txt.type = STATE_TYPE.L
+            break;
+        case ACTION_TYPE.TXT.ERROR :
+            state.txt.type = STATE_TYPE.E
+            state.txt.error = action.error
+            break
     }
     return state;
 }
