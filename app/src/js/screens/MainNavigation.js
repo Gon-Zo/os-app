@@ -9,16 +9,16 @@ import Home from './home/index'
 
 const Tab = createMaterialBottomTabNavigator();
 
-const MyTheme = {
-    dark: false,
-    colors: {
-        primary: 'rgb(255, 45, 85)',
-        background: 'rgb(242, 242, 242)',
-        card: 'rgb(255, 255, 255)',
-        text: 'rgb(28,28,30)',
-        border: 'rgb(199, 199, 204)',
-    },
-};
+// const MyTheme = {
+//     dark: false,
+//     colors: {
+//         primary: 'rgb(255, 45, 85)',
+//         background: 'rgb(242, 242, 242)',
+//         card: 'rgb(255, 255, 255)',
+//         text: 'rgb(28,28,30)',
+//         border: 'rgb(199, 199, 204)',
+//     },
+// };
 
 // activeColor="#f0edf6"
 // inactiveColor="#3e2465"
@@ -30,6 +30,9 @@ const MainNavigation: () => React$Node = () => {
         <NavigationContainer>
             <Tab.Navigator
                 initialRouteName="Home"
+                activeColor="#3e2465"
+                inactiveColor="#c9c9c9"
+                barStyle={{backgroundColor: '#ffffff'}}
             >
                 <Tab.Screen name="Home"
                             component={Home}
