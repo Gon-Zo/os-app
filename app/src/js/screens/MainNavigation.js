@@ -3,7 +3,7 @@ import { createMaterialBottomTabNavigator } from '@react-navigation/material-bot
 import {NavigationContainer} from '@react-navigation/native'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
-import Home from './home/index'
+import Test from './test/index'
 import Setting from './setting/index'
 
 const Tab = createMaterialBottomTabNavigator();
@@ -17,10 +17,10 @@ const MainNavigation: () => React$Node = () => {
                 inactiveColor="#3e2465"
                 barStyle={{ backgroundColor: '#8c63fa' }}
             >
-                <Tab.Screen name="Home"
-                            component={Home}
+                <Tab.Screen name="Test"
+                            component={Test}
                             options={{
-                                tabBarLabel: 'Home',
+                                tabBarLabel: 'Test',
                                 tabBarIcon: ({color}) => (
                                     <MaterialCommunityIcons name="home" color={color} size={26}/>
                                 ),

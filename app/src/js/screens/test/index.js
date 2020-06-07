@@ -2,8 +2,9 @@ import React  from 'react'
 import {useDispatch, useSelector} from "react-redux";
 
 import {SafeAreaView  , StatusBar  , View , Text , Button } from 'react-native'
-import {httpInput, httpOutput} from "../../actions/home";
 import {STATE_TYPE} from "../../modules/enum";
+import {TextInput} from "react-native-paper";
+import {httpCount} from "../../actions/test";
 
 export default () => {
 
@@ -16,6 +17,7 @@ export default () => {
             <StatusBar barStyle="dark-content"/>
             <SafeAreaView>
                 <CountView payload={initData.count} dispatch={dispatch}/>
+                <InputView/>
             </SafeAreaView>
         </>
     )
@@ -34,15 +36,30 @@ function CountView(props) {
 
     return (
         <View>
-            <Button title="+" onPress={() => {
-                httpInput(dispatch)
-            }}/>
+            <Button title="+"
+                    color="#c9c9c9"
+                    onPress={() => {
+                        httpCount(dispatch, '+')
+                    }}/>
             <Text>
                 Home >> {payload.data}
             </Text>
-            <Button title="-" onPress={() => {
-                httpOutput(dispatch)
-            }}/>
+            <Button title="-"
+                    color="#c9c9c9"
+                    onPress={() => {
+                        httpCount(dispatch, '-')
+                    }}/>
         </View>
     )
+}
+
+function InputView (props) {
+
+    return (
+      <View>
+          <TextInput onChangeText={(text) =>
+              console.log('test...', text)}
+          />
+      </View>
+    );
 }
