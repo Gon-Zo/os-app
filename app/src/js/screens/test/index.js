@@ -8,7 +8,7 @@ import {httpCount, httpTxt} from "../../actions/test";
 
 export default () => {
 
-    const initData = useSelector(state=>state.Home , [])
+    const initData = useSelector(state=>state.Test , [])
 
     const dispatch = useDispatch()
 

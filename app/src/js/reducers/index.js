@@ -1,9 +1,9 @@
 import {combineReducers} from 'redux';
 
-import Home from './test'
+import Test from './test'
 
 const reducer = combineReducers({
-  Home
+  Test
 })
 
 export default reducer

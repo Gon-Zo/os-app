@@ -1,17 +1,5 @@
 import {STATE_TYPE} from "../modules/enum";
-
-const ACTION_TYPE = {
-    COUNT: {
-        DATA: "count/input",
-        LOAD: "count/load",
-        ERROR: "count/error",
-    } ,
-    TXT : {
-        DATA  : "txt/data" ,
-        LOAD : "txt/load" ,
-        ERROR : "txt/error"
-    }
-}
+import {ACTION_TYPE  , initData } from '../store/test'
 
 export const onCountData = (paylaod) => ({type: ACTION_TYPE.COUNT.DATA, data: paylaod})
 
@@ -25,21 +13,9 @@ export const onTxtLoad = () => ({type : ACTION_TYPE.TXT.LOAD})
 
 export const onTxtError = (e) => ({type: ACTION_TYPE.TXT.ERROR, error: e})
 
-const initData = {
-    count : {
-        type : STATE_TYPE.S ,
-        data : 0 ,
-        error : null
-    },
-    txt : {
-        type : STATE_TYPE.S ,
-        data : '' ,
-        error : null
-    }
-}
-
 const reducer = (state = initData, action) => {
     switch (action.type) {
+        // count
         case ACTION_TYPE.COUNT.DATA:
             state.count.type = STATE_TYPE.S
             if (action.data == '+') {
@@ -55,7 +31,7 @@ const reducer = (state = initData, action) => {
             state.count.type = STATE_TYPE.E
             state.count.error = action.error
             break;
-
+        //   Txt
         case ACTION_TYPE.TXT.DATA :
             state.txt.type = STATE_TYPE.S
             state.txt.data = action.data
