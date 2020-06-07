@@ -5,18 +5,40 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 
 import Test from './test/index'
 import Setting from './setting/index'
+import Home from './home/index'
 
 const Tab = createMaterialBottomTabNavigator();
+
+const MyTheme = {
+    dark: false,
+    colors: {
+        primary: 'rgb(255, 45, 85)',
+        background: 'rgb(242, 242, 242)',
+        card: 'rgb(255, 255, 255)',
+        text: 'rgb(28,28,30)',
+        border: 'rgb(199, 199, 204)',
+    },
+};
+
+// activeColor="#f0edf6"
+// inactiveColor="#3e2465"
+// barStyle={{backgroundColor: '#8c63fa'}}
+// <NavigationContainer theme={MyTheme}>
 
 const MainNavigation: () => React$Node = () => {
     return (
         <NavigationContainer>
             <Tab.Navigator
                 initialRouteName="Home"
-                activeColor="#f0edf6"
-                inactiveColor="#3e2465"
-                barStyle={{ backgroundColor: '#8c63fa' }}
             >
+                <Tab.Screen name="Home"
+                            component={Home}
+                            options={{
+                                tabBarLabel: "Home",
+                                tabBarIcon: ({color}) => (
+                                    <MaterialCommunityIcons name="home" color={color} size={26}/>)
+                            }}
+                />
                 <Tab.Screen name="Test"
                             component={Test}
                             options={{
