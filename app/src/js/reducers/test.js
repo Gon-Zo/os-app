@@ -7,7 +7,7 @@ export const onCountLoad = () => ({type: ACTION_TYPE.COUNT.LOAD})
 
 export const onCountError = (e) => ({type: ACTION_TYPE.COUNT.ERROR, error: e})
 
-export const onTxtData = (payload) => ({type: ACTION_TYPE.TXT, data: payload})
+export const onTxtData = (payload) => ({type: ACTION_TYPE.TXT.DATA, data: payload})
 
 export const onTxtLoad = () => ({type : ACTION_TYPE.TXT.LOAD})
 
@@ -27,14 +27,14 @@ const reducer = (state = initData, action) => {
         case ACTION_TYPE.COUNT.LOAD:
             state.count.type = STATE_TYPE.L
             break;
-        case ACTION_TYPE.COUNT.ERROR :
-            state.count.type = STATE_TYPE.E
+        case ACTION_TYPE.COUNT.ERROR : state.count.type = STATE_TYPE.E
             state.count.error = action.error
             break;
         //   Txt
         case ACTION_TYPE.TXT.DATA :
             state.txt.type = STATE_TYPE.S
             state.txt.data = action.data
+            console.log('test>>>', JSON.stringify(state))
             break;
         case ACTION_TYPE.TXT.LOAD :
             state.txt.type = STATE_TYPE.L

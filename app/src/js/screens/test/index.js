@@ -1,6 +1,5 @@
-import React  from 'react'
+import React  , {useState} from 'react'
 import {useDispatch, useSelector} from "react-redux";
-
 import {SafeAreaView  , StatusBar  , View , Text , Button } from 'react-native'
 import {STATE_TYPE} from "../../modules/enum";
 import {TextInput} from "react-native-paper";
@@ -58,9 +57,15 @@ function InputView (props) {
     const dispatch = props.dispatch
     const payload = props.payload
 
+    let [value, setValue] = useState('')
+
     return (
-      <View>
-          <TextInput onChangeText={(text) => httpTxt(dispatch, text)}/>
+        <View>
+            <Text>test ::r{payload.data}</Text>
+            <TextInput
+                onChangeText={text => setValue(text)}
+                value={value}/>
+            <Button title={"Button"} onPress={() => httpTxt(dispatch, value)}/>
       </View>
     );
 
