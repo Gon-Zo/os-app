@@ -22,7 +22,7 @@ const MainNavigation: () => React$Node = () => {
                             options={{
                                 tabBarLabel: 'Test',
                                 tabBarIcon: ({color}) => (
-                                    <MaterialCommunityIcons name="home" color={color} size={26}/>
+                                    <MaterialCommunityIcons name="access-point" color={color} size={26}/>
                                 ),
                             }}/>
                 <Tab.Screen name="Setting"
