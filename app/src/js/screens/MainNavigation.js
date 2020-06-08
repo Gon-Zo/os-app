@@ -3,27 +3,13 @@ import { createMaterialBottomTabNavigator } from '@react-navigation/material-bot
 import {NavigationContainer} from '@react-navigation/native'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
-import Test from './test/index'
+// import Test from './test/index'
 import Setting from './setting/index'
 import Home from './home/index'
+import Store from './store/index'
+import Search from './search/index'
 
 const Tab = createMaterialBottomTabNavigator();
-
-// const MyTheme = {
-//     dark: false,
-//     colors: {
-//         primary: 'rgb(255, 45, 85)',
-//         background: 'rgb(242, 242, 242)',
-//         card: 'rgb(255, 255, 255)',
-//         text: 'rgb(28,28,30)',
-//         border: 'rgb(199, 199, 204)',
-//     },
-// };
-
-// activeColor="#f0edf6"
-// inactiveColor="#3e2465"
-// barStyle={{backgroundColor: '#8c63fa'}}
-// <NavigationContainer theme={MyTheme}>
 
 const MainNavigation: () => React$Node = () => {
     return (
@@ -39,17 +25,47 @@ const MainNavigation: () => React$Node = () => {
                             options={{
                                 tabBarLabel: "Home",
                                 tabBarIcon: ({color}) => (
-                                    <MaterialCommunityIcons name="home" color={color} size={26}/>)
+                                    <MaterialCommunityIcons name="home"
+                                                            color={color}
+                                                            size={26}/>)
                             }}
                 />
-                <Tab.Screen name="Test"
-                            component={Test}
+
+                <Tab.Screen name="Store"
+                            component={Store}
                             options={{
-                                tabBarLabel: 'Test',
+                                tabBarLabel: "Store",
                                 tabBarIcon: ({color}) => (
-                                    <MaterialCommunityIcons name="access-point" color={color} size={26}/>
-                                ),
-                            }}/>
+                                    <MaterialCommunityIcons
+                                        name="store"
+                                        color={color}
+                                        size={26}/>
+                                )
+                            }}
+                />
+
+                <Tab.Screen name="Search"
+                            component={Search}
+                            options={{
+                                tabBarLabel: "Search",
+                                tabBarIcon: ({color}) => (
+                                    <MaterialCommunityIcons
+                                        name="magnify"
+                                        color={color}
+                                        size={26}/>
+                                )
+                            }}
+                />
+
+                {/*<Tab.Screen name="Test"*/}
+                {/*            component={Test}*/}
+                {/*            options={{*/}
+                {/*                tabBarLabel: 'Test',*/}
+                {/*                tabBarIcon: ({color}) => (*/}
+                {/*                    <MaterialCommunityIcons name="access-point" color={color} size={26}/>*/}
+                {/*                ),*/}
+                {/*            }}/>*/}
+
                 <Tab.Screen name="Setting"
                             component={Setting}
                             options={{
