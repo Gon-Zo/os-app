@@ -15,7 +15,7 @@ const MainNavigation: () => React$Node = () => {
     return (
         <NavigationContainer>
             <Tab.Navigator
-                initialRouteName="Home"
+                initialRouteName="Setting"
                 activeColor="#3e2465"
                 inactiveColor="#c9c9c9"
                 barStyle={{backgroundColor: '#ffffff'}}

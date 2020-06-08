@@ -1,17 +1,24 @@
 import React from 'react'
-import {StatusBar , SafeAreaView , Text , View} from 'react-native'
+import Main from './main'
+import SignUp from './sing-up'
 
-export default () =>{
+import { createStackNavigator } from '@react-navigation/stack';
+
+const Setting = createStackNavigator()
+
+export default () => {
     return (
-        <>
-        <StatusBar/>
-        <SafeAreaView>
-            <View>
-               <Text>
-                  Setting
-               </Text>
-            </View>
-        </SafeAreaView>
-        </>
+        <Setting.Navigator>
+            <Setting.Screen name="Setting"
+                            component={Main}
+                            options={{headerShown: false}}/>
+
+            <Setting.Screen name="SignUp"
+                            component={SignUp}
+                            options={{
+                                headerTitle : '회원가입'
+                            }}
+            />
+        </Setting.Navigator>
     )
 }
