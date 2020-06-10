@@ -7,8 +7,10 @@ import {
     Text, View,
     TextInput,
     StyleSheet,
-    TouchableOpacity
+    TouchableOpacity ,
+    ScrollView
 } from 'react-native'
+
 import {
     widthPercentageToDP as wp,
     heightPercentageToDP as hp
@@ -16,6 +18,7 @@ import {
 import {useDispatch, useSelector} from "react-redux";
 import {STATE_TYPE} from "../../modules/enum";
 import {saveItems} from "../../actions/search";
+import { Card, CardTitle, CardContent, CardAction, CardButton, CardImage } from 'react-native-cards';
 
 export default () => {
 
@@ -42,7 +45,6 @@ function SearchInput(props) {
 
     return (
         <View style={styles.searchWrap}>
-
             <TextInput style={styles.searchInput}
                        onChangeText={text => setValue(text)}
                        value={value}
@@ -62,12 +64,46 @@ function SearchContent(props) {
 
     const ItemContent = (props) =>{
 
-        if(payload.type === STATE_TYPE.L){
-            return (<Text>Load ...</Text>)
-        }else if (payload.type === STATE_TYPE.E){
-           return(<Text>Error </Text>)
-        }else{
-            return (<Text>SUCCESS...</Text>)
+        if (payload.type === STATE_TYPE.L) {
+            return (
+                <View style={[styles.wrap, styles.test]}>
+                    <Text>Loading....</Text>
+                </View>
+            )
+        } else if (payload.type === STATE_TYPE.E) {
+            return (<Text>Error </Text>)
+        } else {
+            return (
+                <ScrollView>
+                    {
+                        temp2.map((m, n) => (
+                                <Card key={n}>
+                                    <CardTitle
+                                        subtitle="Number 6"
+                                    />
+                                    <CardContent text="Clifton, Western Cape"/>
+                                    <CardAction
+                                        separator={true}
+                                        inColumn={false}>
+                                        <CardButton
+                                            onPress={() => {
+                                            }}
+                                            title="Share"
+                                            color="#FEB557"
+                                        />
+                                        <CardButton
+                                            onPress={() => {
+                                            }}
+                                            title="Explore"
+                                            color="#FEB557"
+                                        />
+                                    </CardAction>
+                                </Card>
+                            )
+                        )
+                    }
+                </ScrollView>
+            )
         }
 
     }
@@ -82,7 +118,6 @@ function SearchContent(props) {
 const styles = StyleSheet.create({
     wrap: {
         flex : 1 ,
-        backgroundColor: '#f00',
     },
     searchWrap: {
         width: wp('100%'),
@@ -106,6 +141,35 @@ const styles = StyleSheet.create({
         height: hp('95%'),
         backgroundColor: '#0f0',
         flexDirection: 'row'
+    },
+    test : {
+        justifyContent: 'center',
+        alignItems : 'center'
     }
 })
+
+const temp2 = [
+    '1',
+    '1',
+    '1',
+    '1',
+    '1',
+    '1',
+    '1',
+    '1',
+    '1',
+    '1',
+    '1',
+    '1',
+    '1',
+    '1',
+    '1',
+    '1',
+    '1',
+    '1',
+    '1',
+    '1',
+    '1',
+    '1',
+]
 
