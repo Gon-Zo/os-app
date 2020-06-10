@@ -14,18 +14,14 @@ import {
     heightPercentageToDP as hp
 } from 'react-native-responsive-screen';
 import {useDispatch, useSelector} from "react-redux";
-import {$fetchItems} from "../../actions/search";
 import {STATE_TYPE} from "../../modules/enum";
+import {saveItems} from "../../actions/search";
 
 export default () => {
 
-    const dispatch = useDispatch
+    const dispatch = useDispatch()
 
     const initData = useSelector(state => state.Search, [])
-
-    // useEffect(() => {
-    //     $fetchItems(dispatch , [])
-    // }, []);
 
     return (
         <>
@@ -51,7 +47,9 @@ function SearchInput(props) {
                        onChangeText={text => setValue(text)}
                        value={value}
             />
-            <TouchableOpacity style={styles.searchBtn} onPress={() => $fetchItems(dispatch, value)}>
+            <TouchableOpacity style={styles.searchBtn} onPress={() => {
+                saveItems(dispatch , value)
+            }}>
                 <MaterialCommunityIcons name="magnify" color="#424242" size={26}/>
             </TouchableOpacity>
         </View>
@@ -61,8 +59,6 @@ function SearchInput(props) {
 function SearchContent(props) {
 
     const payload = props.payload
-
-    console.log('payload', JSON.stringify(payload))
 
     const ItemContent = (props) =>{
 

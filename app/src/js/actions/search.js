@@ -1,7 +1,7 @@
-import {onItemsData, onItemsError, onItemsLoad } from "../reducers/search";
 
-export function $fetchItems(dispatch, payload) {
-    // payload is search Value
+import {onItemsData, onItemsError, onItemsLoad} from "../reducers/search";
+
+export function saveItems(dispatch, payload) {
     dispatch(onItemsLoad())
     try {
         dispatch(onItemsData(payload))

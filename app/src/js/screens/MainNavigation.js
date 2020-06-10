@@ -8,6 +8,7 @@ import Setting from './setting/index'
 import Home from './home/index'
 import Store from './store/index'
 import Search from './search/index'
+import Test from './test/index'
 
 const Tab = createMaterialBottomTabNavigator();
 
@@ -57,14 +58,14 @@ const MainNavigation: () => React$Node = () => {
                             }}
                 />
 
-                {/*<Tab.Screen name="Test"*/}
-                {/*            component={Test}*/}
-                {/*            options={{*/}
-                {/*                tabBarLabel: 'Test',*/}
-                {/*                tabBarIcon: ({color}) => (*/}
-                {/*                    <MaterialCommunityIcons name="access-point" color={color} size={26}/>*/}
-                {/*                ),*/}
-                {/*            }}/>*/}
+                <Tab.Screen name="Test"
+                            component={Test}
+                            options={{
+                                tabBarLabel: 'Test',
+                                tabBarIcon: ({color}) => (
+                                    <MaterialCommunityIcons name="access-point" color={color} size={26}/>
+                                ),
+                            }}/>
 
                 <Tab.Screen name="Setting"
                             component={Setting}
