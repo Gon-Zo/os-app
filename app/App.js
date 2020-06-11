@@ -15,4 +15,19 @@ const App : () => React$Node = () =>{
     )
 }
 
+import { createStackNavigator } from '@react-navigation/stack';
+import {NavigationContainer} from "@react-navigation/native";
+
+const RooterNav = createStackNavigator()
+
+const Rooter = () => {
+    return (
+        <NavigationContainer>
+            <RooterNav.Navigator>
+                <RooterNav.Screen name={MainNavigation}/>
+            </RooterNav.Navigator>
+        </NavigationContainer>
+    )
+}
+
 export default App;

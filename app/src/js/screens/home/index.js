@@ -4,17 +4,45 @@ import {
     SafeAreaView,
     Text,
     View,
-    ScrollView
+    ScrollView, TouchableOpacity
 } from 'react-native'
 import { Card, CardTitle, CardContent, CardAction, CardButton, CardImage } from 'react-native-cards';
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
+import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 
-export default () => {
+export default (navigation) => {
     return (
         <>
             <StatusBar></StatusBar>
-            <SafeAreaView style={{backgroundColor: '#f00', flex: 1}}>
+            <SafeAreaView style={{flex: 1}}>
+
+                <View style={{
+                    backgroundColor: '#f00',
+                    height: hp('5%'),
+                    flexDirection : 'row'
+                }}>
+                    <View style={{backgroundColor : '#00f' , flex : 1}}>
+
+                    </View>
+                    <View style={{
+                        backgroundColor: '#0f0',
+                        flex: 1,
+                        alignItems: 'flex-end',
+                        justifyContent: 'center',
+                        paddingRight: 10
+                    }}>
+                        <TouchableOpacity onPress={()=>{
+                            alert("test")
+                        }}>
+                            <MaterialCommunityIcons name="shopping" color="#424242" size={26}/>
+                        </TouchableOpacity>
+                    </View>
+                </View>
+
                 <ScrollView>
-                    <TopItemsView/>
+                    <BestCardView title={'Most Top5 Items'}/>
+                    <BestCardView title={'Best Top5 Items'}/>
+                    <BestCardView title={'Review Top5 Items'}/>
                 </ScrollView>
             </SafeAreaView>
        </>
@@ -22,14 +50,14 @@ export default () => {
 }
 
 
-function TopItemsView(props) {
+function BestCardView(props) {
+
+    const title  = props.title
 
     return (
-        <View style={{ marginTop : 20}}>
+        <View style={{ marginTop : 30}}>
             <View>
-                <Text style={{color: '#424242', fontSize: 20 ,
-                    fontFamily : 'NotoSansKR-Black'
-                }}>Best Top 5 Items</Text>
+                <Text style={{color: '#424242', fontSize: 20 , fontWeight : 'bold'}}>  {title}</Text>
             </View>
             <ScrollView  horizontal={true}>
                 {
@@ -68,23 +96,6 @@ function TopItemsView(props) {
 
 
 const temp2 = [
-    '1',
-    '1',
-    '1',
-    '1',
-    '1',
-    '1',
-    '1',
-    '1',
-    '1',
-    '1',
-    '1',
-    '1',
-    '1',
-    '1',
-    '1',
-    '1',
-    '1',
     '1',
     '1',
     '1',
