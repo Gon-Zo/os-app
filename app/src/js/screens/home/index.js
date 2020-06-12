@@ -7,38 +7,12 @@ import {
     ScrollView, TouchableOpacity
 } from 'react-native'
 import { Card, CardTitle, CardContent, CardAction, CardButton, CardImage } from 'react-native-cards';
-import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
-import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 
-export default (navigation) => {
+export default () => {
     return (
         <>
             <StatusBar></StatusBar>
             <SafeAreaView style={{flex: 1}}>
-
-                <View style={{
-                    backgroundColor: '#f00',
-                    height: hp('5%'),
-                    flexDirection : 'row'
-                }}>
-                    <View style={{backgroundColor : '#00f' , flex : 1}}>
-
-                    </View>
-                    <View style={{
-                        backgroundColor: '#0f0',
-                        flex: 1,
-                        alignItems: 'flex-end',
-                        justifyContent: 'center',
-                        paddingRight: 10
-                    }}>
-                        <TouchableOpacity onPress={()=>{
-                            alert("test")
-                        }}>
-                            <MaterialCommunityIcons name="shopping" color="#424242" size={26}/>
-                        </TouchableOpacity>
-                    </View>
-                </View>
-
                 <ScrollView>
                     <BestCardView title={'Most Top5 Items'}/>
                     <BestCardView title={'Best Top5 Items'}/>
