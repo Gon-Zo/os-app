@@ -17,8 +17,7 @@ export default () => {
                             component={SignUp}
                             options={{
                                 headerTitle : '회원가입'
-                            }}
-            />
+                            }}/>
         </Setting.Navigator>
     )
 }

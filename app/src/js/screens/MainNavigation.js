@@ -11,8 +11,9 @@ import Ionicons from "react-native-vector-icons/Ionicons";
 import Setting from './setting/index'
 import Home from './home/index'
 import Store from './store/index'
-import Search from './search/index'
 import Basket from './basket/index'
+import Login from './login/index'
+
 import {APP_OS} from "../public/comm";
 
 const BottomNavigation = ({navigation}) => {
@@ -81,6 +82,7 @@ const Router = () => {
             <Stack.Navigator>
                 <Stack.Screen name="Main" component={BottomNavigation}/>
                 <Stack.Screen name="Basket" component={Basket}/>
+                <Stack.Screen name="Login" component={Login} options={{headerShown: false}}/>
            </Stack.Navigator>
        </NavigationContainer>
    )
