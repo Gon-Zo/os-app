@@ -1,17 +1,32 @@
 import React from 'react'
-import {SafeAreaView , StatusBar , View , Text} from 'react-native'
+import { FlatGrid  , SectionGrid } from 'react-native-super-grid';
+import {Image,
+    ScrollView,
+    SafeAreaView,
+    StatusBar,
+    View,
+    Text,
+    StyleSheet,
+    FlatList
+} from 'react-native'
 
 export default () => {
     return (
         <>
             <StatusBar/>
             <SafeAreaView>
-            <View>
-                <Text>
-                   store
-                </Text>
-            </View>
+                <ScrollView>
+                    <CateGroupBox/>
+                </ScrollView>
             </SafeAreaView>
         </>
     )
 }
+
+function CateGroupBox() {
+    return(
+        <ScrollView>
+        </ScrollView>
+    )
+}
+
