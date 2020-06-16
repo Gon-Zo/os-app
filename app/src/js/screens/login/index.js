@@ -9,9 +9,9 @@ import {
     StyleSheet, TouchableOpacity
 } from 'react-native'
 
-import {onLogin} from "../../actions/setting";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import {APP_OS} from "../../public/comm";
+import axios from "axios";
 
 export default ({navigation}) => {
 
@@ -47,10 +47,21 @@ export default ({navigation}) => {
                                style={{backgroundColor: '#f0f', height: 40}}/>
                 </View>
                 <View style={[styles.wrap, {}]}>
+
                     <Button title={"Login"}
-                            onPress={() =>
-                                onLogin(navigation, {email: email, password: password})}/>
-                    <Button title={"Sign Up"}/>
+                            onPress={() =>{
+                                const payload = {email: email, password: password}
+                                axios.post(`login`, payload)
+                                    .then((res) => {
+                                        const token = res.data.token
+                                        axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+                                        navigation.goBack()
+                                    })
+                                    .catch(err => console.log(err))
+                            }}/>
+
+                    <Button title={"Sign Up"} onPress={() => navigation.navigate("SignUp")}/>
+
                 </View>
             </SafeAreaView>
         </>

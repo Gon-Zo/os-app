@@ -13,8 +13,10 @@ import Home from './home/index'
 import Store from './store/index'
 import Basket from './basket/index'
 import Login from './login/index'
+import SignUp from './signup/index'
 
 import {APP_OS} from "../public/comm";
+import axios from "axios";
 
 const BottomNavigation = ({navigation}) => {
 
@@ -23,7 +25,12 @@ const BottomNavigation = ({navigation}) => {
             headerRight: () => (
                 <TouchableOpacity
                     onPress={() => {
-                        navigation.navigate('Basket')
+                        if (typeof  axios.defaults.headers.common['Authorization'] == 'undefined'){
+                            alert("Go Login")
+                            navigation.navigate("Login")
+                        } else {
+                            navigation.navigate('Basket')
+                        }
                     }}
                     style={{paddingRight: 10}}>
                     <Ionicons name="ios-basket" color="#424242" size={20}/>
@@ -83,6 +90,7 @@ const Router = () => {
                 <Stack.Screen name="Main" component={BottomNavigation}/>
                 <Stack.Screen name="Basket" component={Basket}/>
                 <Stack.Screen name="Login" component={Login}/>
+                <Stack.Screen name="SignUp" component={SignUp}/>
            </Stack.Navigator>
        </NavigationContainer>
    )
