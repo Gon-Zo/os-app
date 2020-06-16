@@ -4,9 +4,8 @@ import {
     Button,
     SafeAreaView,
     View,
-    Text,
     TextInput,
-    StyleSheet, TouchableOpacity
+    StyleSheet
 } from 'react-native'
 
 import axios from "axios";
