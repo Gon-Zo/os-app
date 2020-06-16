@@ -82,7 +82,7 @@ const Router = () => {
             <Stack.Navigator>
                 <Stack.Screen name="Main" component={BottomNavigation}/>
                 <Stack.Screen name="Basket" component={Basket}/>
-                <Stack.Screen name="Login" component={Login} options={{headerShown: false}}/>
+                <Stack.Screen name="Login" component={Login}/>
            </Stack.Navigator>
        </NavigationContainer>
    )
