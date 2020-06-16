@@ -9,22 +9,16 @@ import {
     StyleSheet, TouchableOpacity
 } from 'react-native'
 
-import Ionicons from "react-native-vector-icons/Ionicons";
-import {APP_OS} from "../../public/comm";
 import axios from "axios";
+import {BackButton} from "../common/button";
 
 export default ({navigation}) => {
-
 
     React.useLayoutEffect(()=>{
 
         navigation.setOptions({
             headerLeft : () => (
-                <TouchableOpacity
-                    onPress={() => navigation.goBack()}
-                    style={{paddingLeft: 10}}>
-                    <Ionicons name={`${APP_OS}-arrow-back`} color="#424242" size={20}/>
-                </TouchableOpacity>
+                <BackButton navigation={navigation}/>
             )
         })
 
@@ -57,7 +51,9 @@ export default ({navigation}) => {
                                         axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
                                         navigation.goBack()
                                     })
-                                    .catch(err => console.log(err))
+                                    .catch(err =>{
+                                        alert("Login Fail")
+                                    })
                             }}/>
 
                     <Button title={"Sign Up"} onPress={() => navigation.navigate("SignUp")}/>

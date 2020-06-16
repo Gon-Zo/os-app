@@ -3,15 +3,12 @@ import {View,
     Text,
     StatusBar,
     SafeAreaView,
-    Button,
-    TouchableOpacity,
     StyleSheet ,
     ScrollView
 } from 'react-native'
-import Ionicons from "react-native-vector-icons/Ionicons";
-import {APP_OS} from "../../public/comm";
 import { FlatGrid  , SectionGrid } from 'react-native-super-grid';
 import {RandomColor} from "../../public/colors";
+import {BackButton} from "../common/button";
 
 export default ({navigation}) => {
 
@@ -19,11 +16,7 @@ export default ({navigation}) => {
 
         navigation.setOptions({
             headerLeft : () => (
-                <TouchableOpacity
-                    onPress={() => navigation.goBack()}
-                    style={{paddingLeft: 10}}>
-                    <Ionicons name={`${APP_OS}-arrow-back`} color="#424242" size={20}/>
-                </TouchableOpacity>
+              <BackButton  navigation={navigation}/>
             )
         })
 

@@ -15,26 +15,33 @@ import Basket from './basket/index'
 import Login from './login/index'
 import SignUp from './signup/index'
 
-import {APP_OS} from "../public/comm";
-import axios from "axios";
+import {APP_OS, CHECK_AUTH} from "../public/comm";
+
+function BasketButton(props) {
+    const navigation = props.navigation
+    if (CHECK_AUTH) {
+        return (
+            <>
+            </>
+        )
+    }
+    return(
+        <TouchableOpacity
+            onPress={() => {
+                    navigation.navigate('Basket')
+            }}
+            style={{paddingRight: 10}}>
+            <Ionicons name="ios-basket" color="#424242" size={20}/>
+        </TouchableOpacity>
+    )
+}
 
 const BottomNavigation = ({navigation}) => {
 
     React.useLayoutEffect(() => {
         navigation.setOptions({
             headerRight: () => (
-                <TouchableOpacity
-                    onPress={() => {
-                        if (typeof  axios.defaults.headers.common['Authorization'] == 'undefined'){
-                            alert("Go Login")
-                            navigation.navigate("Login")
-                        } else {
-                            navigation.navigate('Basket')
-                        }
-                    }}
-                    style={{paddingRight: 10}}>
-                    <Ionicons name="ios-basket" color="#424242" size={20}/>
-                </TouchableOpacity>
+                <BasketButton navigation={navigation}/>
             ),
         });
     }, [navigation]);
