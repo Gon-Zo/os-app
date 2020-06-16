@@ -11,9 +11,7 @@ export default ({navigation}) =>{
                         Setting
                     </Text>
                 </View>
-
                 <LoginBtnGroup navigation={navigation}/>
-
             </SafeAreaView>
         </>
     )

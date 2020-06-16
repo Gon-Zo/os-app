@@ -30,15 +30,10 @@ export default ({navigation}) => {
                 </View>
                 <View style={[styles.wrap, {}]}>
 
-                    <Button title={"Login"} onPress={() => {
-
-                        onLogin({email: email, password: password})
-                            .then(res=>{
-                                navigation.goBack()
-                            })
-                            .catch(err => alert("Login Fail"))
-                    }}/>
-
+                    <Button title={"Login"}
+                            onPress={() =>
+                                onLogin(navigation, {email: email, password: password})}/>
+                    <Button title={"Back"} onPress={() => navigation.goBack()}/>
                 </View>
             </SafeAreaView>
         </>
