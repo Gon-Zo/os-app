@@ -1,23 +1,45 @@
 import React from 'react'
-import Main from './main'
-import SignUp from './sing-up'
+import {StatusBar , SafeAreaView , Text , View , Button , StyleSheet} from 'react-native'
 
-import { createStackNavigator } from '@react-navigation/stack';
-
-const Setting = createStackNavigator()
-
-export default () => {
+export default ({navigation}) =>{
     return (
-        <Setting.Navigator>
-            <Setting.Screen name="Setting"
-                            component={Main}
-                            options={{headerShown: false}}/>
-
-            <Setting.Screen name="SignUp"
-                            component={SignUp}
-                            options={{
-                                headerTitle : '회원가입'
-                            }}/>
-        </Setting.Navigator>
+        <>
+            <StatusBar/>
+            <SafeAreaView>
+                <View style={styles.test1}>
+                    <Text>
+                        Setting
+                    </Text>
+                </View>
+                <LoginBtnGroup navigation={navigation}/>
+            </SafeAreaView>
+        </>
     )
 }
+
+function LoginBtnGroup(props) {
+
+    const navigation = props.navigation
+
+    return (
+        <>
+            <View>
+                <Button title="Auto Login 1"/>
+                <Button title="Auto Login 2"/>
+                <Button title="Auto Login 3"/>
+                <Button title="Auto Login 4" onPress={()=>{
+                    navigation.navigate("Login")
+                }}/>
+            </View>
+            <Button title="Open Modal" onPress={() => {
+                navigation.navigate('SignUp')
+            }}/>
+        </>
+    )
+}
+
+const styles = StyleSheet.create({
+    test1 : {
+        backgroundColor : '#f00'
+    }
+})
