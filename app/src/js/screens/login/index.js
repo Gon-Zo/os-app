@@ -5,7 +5,7 @@ import {
     SafeAreaView,
     View,
     TextInput,
-    StyleSheet
+    StyleSheet ,
 } from 'react-native'
 
 import axios from "axios";
@@ -34,8 +34,7 @@ export default ({navigation}) => {
                 <View style={styles.wrap}>
                     <TextInput onChangeText={text => setEmail(text)} value={email}
                                style={{backgroundColor: '#00f', height: 40}}/>
-                </View>
-                <View style={[styles.wrap, {}]}>
+                </View> <View style={[styles.wrap, {}]}>
                     <TextInput onChangeText={text => setPassword(text)} value={password}
                                style={{backgroundColor: '#f0f', height: 40}}/>
                 </View>
@@ -53,7 +52,8 @@ export default ({navigation}) => {
                                     .catch(err =>{
                                         alert("Login Fail")
                                     })
-                            }}/>
+
+                            }}></Button>
 
                     <Button title={"Sign Up"} onPress={() => navigation.navigate("SignUp")}/>
 

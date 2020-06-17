@@ -1,7 +1,7 @@
 import React from 'react'
 import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
 import {NavigationContainer} from '@react-navigation/native'
-import {TouchableOpacity} from 'react-native'
+import {TouchableOpacity, AsyncStorage} from 'react-native'
 import {createStackNavigator} from "@react-navigation/stack";
 
 const BottomNav = createMaterialBottomTabNavigator();
@@ -14,17 +14,20 @@ import Store from './store/index'
 import Basket from './basket/index'
 import Login from './login/index'
 import SignUp from './signup/index'
-
-import {APP_OS, CHECK_AUTH} from "../public/comm";
+import {APP_OS} from "../public/comm";
+import axios from "axios";
 
 function BasketButton(props) {
+
     const navigation = props.navigation
-    if (CHECK_AUTH) {
+
+    if (typeof axios.defaults.headers.common['Authorization'] === 'undefined') {
         return (
             <>
             </>
         )
     }
+
     return(
         <TouchableOpacity
             onPress={() => {
@@ -34,16 +37,19 @@ function BasketButton(props) {
             <Ionicons name="ios-basket" color="#424242" size={20}/>
         </TouchableOpacity>
     )
+
 }
 
 const BottomNavigation = ({navigation}) => {
 
     React.useLayoutEffect(() => {
+
         navigation.setOptions({
             headerRight: () => (
                 <BasketButton navigation={navigation}/>
             ),
         });
+
     }, [navigation]);
 
     return (

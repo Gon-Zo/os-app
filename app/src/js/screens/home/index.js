@@ -7,6 +7,7 @@ import {
     ScrollView, TouchableOpacity
 } from 'react-native'
 import { Card, CardTitle, CardContent, CardAction, CardButton, CardImage } from 'react-native-cards';
+import {Fonts} from "../../public/comm";
 
 export default () => {
     return (
@@ -31,7 +32,9 @@ function BestCardView(props) {
     return (
         <View style={{ marginTop : 30}}>
             <View>
-                <Text style={{color: '#424242', fontSize: 20 , fontWeight : 'bold'}}>  {title}</Text>
+                <Text style={{color: '#424242', fontSize: 20 , fontWeight : 'bold',
+                    fontFamily : "BMHANNA"
+                }}>  {title}</Text>
             </View>
             <ScrollView  horizontal={true}>
                 {

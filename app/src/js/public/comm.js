@@ -6,6 +6,7 @@ export const APP_OS = Platform == 'ios' ? 'ios' : 'md'
 
 export const AUTH_POINT = axios.defaults.headers.common['Authorization']
 
-export const CHECK_AUTH = () => {
-    return typeof AUTH_POINT === 'undefined'
+export const Fonts = {
+    BMHANNA: "BMHANNA"
 }
+
