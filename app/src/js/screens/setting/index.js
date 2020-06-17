@@ -26,8 +26,8 @@ function LoginBtnGroup(props) {
             <View>
                 <Button title="Auto Login 1"/>
                 <Button title="Auto Login 2"/>
-                <Button title="Auto Login 3"/>
-                <Button title="Login" onPress={()=> navigation.navigate("Login")}/>
+                <Button  title="Auto Login 3"/>
+                <Button  title="로그인" onPress={()=> navigation.navigate("Login")}/>
             </View>
             <Button title="Open Modal" onPress={() => navigation.navigate('SignUp')}/>
         </>

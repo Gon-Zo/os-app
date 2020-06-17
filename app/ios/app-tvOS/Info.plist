@@ -64,12 +64,7 @@
         <string>SimpleLineIcons.ttf</string>
         <string>Octicons.ttf</string>
         <string>Zocial.ttf</string>
-        <string>NotoSansKR-Black.ttf</string>
-        <string>NotoSansKR-Bold.ttf</string>
-        <string>NotoSansKR-Light.ttf</string>
-        <string>NotoSansKR-Medium.ttf</string>
-        <string>NotoSansKR-Regular.ttf</string>
-        <string>NotoSansKR-Thin.ttf</string>
+        <string>BMHANNA.ttf</string>
       </array>
 
 	<key>UIViewControllerBasedStatusBarAppearance</key>

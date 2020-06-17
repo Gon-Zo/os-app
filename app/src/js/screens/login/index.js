@@ -7,7 +7,6 @@ import {
     TextInput,
     StyleSheet ,
 } from 'react-native'
-
 import axios from "axios";
 import {BackButton} from "../common/button";
 
@@ -31,13 +30,17 @@ export default ({navigation}) => {
         <>
             <StatusBar></StatusBar>
             <SafeAreaView style={[styles.wrap, {}]}>
+
                 <View style={styles.wrap}>
                     <TextInput onChangeText={text => setEmail(text)} value={email}
                                style={{backgroundColor: '#00f', height: 40}}/>
-                </View> <View style={[styles.wrap, {}]}>
+                </View>
+
+                <View style={[styles.wrap, {}]}>
                     <TextInput onChangeText={text => setPassword(text)} value={password}
                                style={{backgroundColor: '#f0f', height: 40}}/>
                 </View>
+
                 <View style={[styles.wrap, {}]}>
 
                     <Button title={"Login"}
@@ -52,12 +55,11 @@ export default ({navigation}) => {
                                     .catch(err =>{
                                         alert("Login Fail")
                                     })
-
                             }}></Button>
 
                     <Button title={"Sign Up"} onPress={() => navigation.navigate("SignUp")}/>
-
                 </View>
+
             </SafeAreaView>
         </>
     )

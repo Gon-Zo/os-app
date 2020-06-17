@@ -33,7 +33,7 @@ function BestCardView(props) {
         <View style={{ marginTop : 30}}>
             <View>
                 <Text style={{color: '#424242', fontSize: 20 , fontWeight : 'bold',
-                    fontFamily : "BMHANNA"
+                    // fontFamily : "BMHANNA"
                 }}>  {title}</Text>
             </View>
             <ScrollView  horizontal={true}>
