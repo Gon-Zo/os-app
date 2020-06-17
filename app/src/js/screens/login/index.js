@@ -58,6 +58,7 @@ export default ({navigation}) => {
                             }}></Button>
 
                     <Button title={"Sign Up"} onPress={() => navigation.navigate("SignUp")}/>
+
                 </View>
 
             </SafeAreaView>
