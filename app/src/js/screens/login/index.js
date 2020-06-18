@@ -7,11 +7,13 @@ import {
     TextInput,
     StyleSheet,
 } from 'react-native'
-import axios from "axios";
 import {BackButton} from "../common/button";
 import {onLogin} from "../../actions/statics";
+import {useDispatch} from "react-redux";
 
 export default ({navigation}) => {
+
+    const dispatch = useDispatch()
 
     React.useLayoutEffect(() => {
 
@@ -47,7 +49,7 @@ export default ({navigation}) => {
                     <Button title={"Login"}
                             onPress={() => {
                                 const payload = {email: email, password: password}
-                                onLogin(navigation, payload)
+                                onLogin( dispatch ,navigation, payload)
                             }}></Button>
 
                     <Button title={"Sign Up"} onPress={() => navigation.navigate("SignUp")}/>

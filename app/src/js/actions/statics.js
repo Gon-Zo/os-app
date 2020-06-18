@@ -1,21 +1,23 @@
 import axios from "axios";
-import {AsyncStorage} from "react-native";
+import {onLoginData, onLoginError, onLoginLoad} from "../reducers/statics";
 
-export function onLogin(navigation , payload) {
-    axios.post(`login`, payload)
-        .then((res) => {
-            const token = `Bearer ${res.data.token}`
-            axios.defaults.headers.common['Authorization'] = token
-            test("token", token)
-            navigation.goBack()
-        })
-        .catch(err =>{
-            alert("Login Fail")
-        })
+export function onLogin(dispatch, navigation, payload) {
 
-}
+    dispatch(onLoginLoad())
+    try {
+        axios.post(`login`, payload)
+            .then((res) => {
+                const token = `Bearer ${res.data.token}`
+                axios.defaults.headers.common['Authorization'] = token
+                dispatch(onLoginData(true))
+                navigation.goBack()
+            })
+            .catch(err => {
+                dispatch(onLoginData(false))
+                alert("Login Fail")
+            })
+    }catch (e) {
+        dispatch(onLoginError(e))
+    }
 
-
-async function test(key, val) {
-    await AsyncStorage.setItem(key, val)
 }

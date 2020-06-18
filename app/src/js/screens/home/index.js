@@ -11,8 +11,8 @@ import { Card, CardTitle, CardContent, CardAction, CardButton, CardImage } from 
 
 export default () => {
 
-    const test = AsyncStorage.getItem("token")
-    console.log('test...', test)
+    // const test = AsyncStorage.getItem("token")
+    // console.log('test...', test)
 
     return (
         <>
