@@ -4,12 +4,16 @@ import {
     SafeAreaView,
     Text,
     View,
-    ScrollView, TouchableOpacity
+    ScrollView,
+    AsyncStorage
 } from 'react-native'
 import { Card, CardTitle, CardContent, CardAction, CardButton, CardImage } from 'react-native-cards';
-import {Fonts} from "../../public/comm";
 
 export default () => {
+
+    const test = AsyncStorage.getItem("token")
+    console.log('test...', test)
+
     return (
         <>
             <StatusBar></StatusBar>

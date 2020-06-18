@@ -1,26 +1,27 @@
-import React , {useState} from 'react'
+import React, {useState} from 'react'
 import {
     StatusBar,
     Button,
     SafeAreaView,
     View,
     TextInput,
-    StyleSheet ,
+    StyleSheet,
 } from 'react-native'
 import axios from "axios";
 import {BackButton} from "../common/button";
+import {onLogin} from "../../actions/statics";
 
 export default ({navigation}) => {
 
-    React.useLayoutEffect(()=>{
+    React.useLayoutEffect(() => {
 
         navigation.setOptions({
-            headerLeft : () => (
+            headerLeft: () => (
                 <BackButton navigation={navigation}/>
             )
         })
 
-    },[navigation])
+    }, [navigation])
 
     let [email, setEmail] = useState()
 
@@ -44,17 +45,9 @@ export default ({navigation}) => {
                 <View style={[styles.wrap, {}]}>
 
                     <Button title={"Login"}
-                            onPress={() =>{
+                            onPress={() => {
                                 const payload = {email: email, password: password}
-                                axios.post(`login`, payload)
-                                    .then((res) => {
-                                        const token = res.data.token
-                                        axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
-                                        navigation.goBack()
-                                    })
-                                    .catch(err =>{
-                                        alert("Login Fail")
-                                    })
+                                onLogin(navigation, payload)
                             }}></Button>
 
                     <Button title={"Sign Up"} onPress={() => navigation.navigate("SignUp")}/>
@@ -67,7 +60,7 @@ export default ({navigation}) => {
 }
 
 const styles = StyleSheet.create({
-    box : {
-        flex : 1 ,
+    box: {
+        flex: 1,
     }
 })
