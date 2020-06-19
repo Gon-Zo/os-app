@@ -11,7 +11,6 @@ const App : () => React$Node = () =>{
 
     useEffect(()=>{
         console.log('create test')
-
     },[])
 
     return (
