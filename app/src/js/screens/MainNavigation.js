@@ -1,13 +1,9 @@
 import React from 'react'
 import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
 import {NavigationContainer} from '@react-navigation/native'
-import {TouchableOpacity, AsyncStorage} from 'react-native'
 import {createStackNavigator} from "@react-navigation/stack";
-
 const BottomNav = createMaterialBottomTabNavigator();
-
 import Ionicons from "react-native-vector-icons/Ionicons";
-
 import Setting from './setting/index'
 import Home from './home/index'
 import Store from './store/index'
@@ -15,38 +11,18 @@ import Basket from './basket/index'
 import Login from './login/index'
 import SignUp from './signup/index'
 import {APP_OS} from "../public/comm";
-import axios from "axios";
-
-function BasketButton(props) {
-
-    const navigation = props.navigation
-
-    if (typeof axios.defaults.headers.common['Authorization'] === 'undefined') {
-        return (
-            <>
-            </>
-        )
-    }
-
-    return(
-        <TouchableOpacity
-            onPress={() => {
-                    navigation.navigate('Basket')
-            }}
-            style={{paddingRight: 10}}>
-            <Ionicons name="ios-basket" color="#424242" size={20}/>
-        </TouchableOpacity>
-    )
-
-}
+import {useSelector} from "react-redux";
+import {BasketButton} from "./common/button";
 
 const BottomNavigation = ({navigation}) => {
+
+    const initData = useSelector(state=>state.Statics , [])
 
     React.useLayoutEffect(() => {
 
         navigation.setOptions({
             headerRight: () => (
-                <BasketButton navigation={navigation}/>
+                <BasketButton navigation={navigation} isLogin={initData.isLogin}/>
             ),
         });
 
@@ -97,6 +73,7 @@ const BottomNavigation = ({navigation}) => {
 const Stack = createStackNavigator()
 
 const Router = () => {
+
     return (
         <NavigationContainer>
             <Stack.Navigator>

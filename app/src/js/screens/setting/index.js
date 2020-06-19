@@ -1,11 +1,12 @@
 import React from 'react'
 import {StatusBar , SafeAreaView , Text , View , Button , StyleSheet} from 'react-native'
-import {isLogin} from "../../public/comm";
+import {isFalse, isLogin} from "../../public/comm";
 import axios from "axios";
+import {useSelector} from "react-redux";
 
 export default ({navigation}) =>{
 
-    console.log("TEST..")
+    const initData = useSelector(state=>state.Statics , [])
 
     return (
         <>
@@ -16,7 +17,7 @@ export default ({navigation}) =>{
                         Setting
                     </Text>
                 </View>
-                <LoginBtnGroup navigation={navigation}/>
+                <LoginBtnGroup navigation={navigation} isLogin={initData.isLogin}/>
             </SafeAreaView>
         </>
     )
@@ -26,9 +27,9 @@ function LoginBtnGroup(props) {
 
     const navigation = props.navigation
 
-    console.log('Login Button', isLogin())
+    const isLogin = props.isLogin
 
-    if (typeof axios.defaults.headers.common['Authorization'] === 'undefined') {
+    if (isFalse(isLogin.data)) {
         return (
             <>
                 <View>

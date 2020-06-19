@@ -10,8 +10,7 @@ export const Fonts = {
     BMHANNA: "BMHANNA"
 }
 
-export function isLogin() {
-    let test = typeof axios.defaults.headers.common['Authorization'] === 'undefined'
-    console.log("isLogin", test)
-    return test
+export function isFalse(val){
+   return val == false
 }
+
