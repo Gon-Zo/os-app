@@ -1,12 +1,17 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import {StatusBar , SafeAreaView , Text , View , Button , StyleSheet , AsyncStorage} from 'react-native'
-import {isFalse} from "../../public/comm";
 import {useSelector} from "react-redux";
 import {onTest} from "../../actions/statics";
+import {isFalse} from "../../public/comm";
 
 export default ({navigation}) =>{
 
     const initData = useSelector(state=>state.Statics , [])
+
+    let _onUpdate = (val) =>{
+        initData.isLogin.data = val
+        console.log( 'update' , initData.isLogin.data)
+    }
 
     return (
         <>
@@ -16,11 +21,42 @@ export default ({navigation}) =>{
                     <Text>
                         Setting
                     </Text>
+
+                    <Button title="로그인" onPress={() => navigation.navigate("Login")}/>
+
+                    <Button title={"로그아웃"} onPress={() => {
+                        AsyncStorage.removeItem("token")
+                            .then(res => _onUpdate(false))
+                            .catch(err => console.log(err))
+                    }}/>
+
                 </View>
-                <LoginBtnGroup navigation={navigation} isLogin={initData.isLogin}/>
+                <TestV flag={initData.isLogin}/>
+                {/*<LoginBtnGroup navigation={navigation} isLogin={initData.isLogin.data} onUpdate={_onUpdate}/>*/}
             </SafeAreaView>
         </>
     )
+}
+
+function TestV(props) {
+
+    const [user, setUser] = React.useState({...props.flag});
+
+    React.useEffect(() => {
+        setUser(props.flag);
+    }, [props.flag])
+
+    return user.data ? (
+            <View>
+                <Text>TEST 1 true</Text>
+            </View>
+        ) :
+        (
+            <View>
+                <Text>Test 2 false</Text>
+            </View>
+        )
+
 }
 
 function LoginBtnGroup(props) {
@@ -29,7 +65,15 @@ function LoginBtnGroup(props) {
 
     const isLogin = props.isLogin
 
-    if (isFalse(isLogin.data)) {
+    const _onUpdate = props.onUpdate
+
+    const [flag, setFlag] = React.useState(isLogin);
+
+    React.useEffect(() => {
+        setFlag(props.isLogin.data);
+    }, [props.isLogin])
+
+    if (isFalse(flag)) {
         return (
             <>
                 <View>
@@ -37,13 +81,10 @@ function LoginBtnGroup(props) {
                     <Button title="Auto Login 2" onPress={()=>{
                         onTest()
                     }}/>
+                    <Button title="로그인" onPress={() => navigation.navigate("Login")}/>
                     <Button title="Auto Login 3" onPress={() => {
-                        // AsyncStorage.getItem("test")
-                        //     .then(r => console.log('then 1111111111111', r))
-                        //     .catch(err => console.log(err))
                     }}/>
 
-                    <Button title="로그인" onPress={() => navigation.navigate("Login")}/>
                 </View>
                 <Button title="Open Modal" onPress={() => navigation.navigate('SignUp')}/>
             </>
@@ -54,15 +95,18 @@ function LoginBtnGroup(props) {
         <>
             <View>
                 <Text>
-                    Login User
+                    Login User {JSON.stringify(isLogin.data)}
                 </Text>
                 <Button title={"Test"}
                         onPress={() => {
                             onTest()
-                            // AsyncStorage.getItem("test")
-                            //     .then(r => console.log('then', r))
-                            //     .catch(err => console.log(err))
                         }}/>
+
+                <Button title={"로그아웃"} onPress={() => {
+                    AsyncStorage.removeItem("token")
+                        .then(res => _onUpdate(false))
+                        .catch(err => console.log(err))
+                }}/>
             </View>
         </>
     )

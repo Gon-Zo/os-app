@@ -30,23 +30,9 @@ export function onLogin(dispatch, navigation, payload) {
 }
 
 export function onTest() {
-
     axios.get(`/manager/product/chart`)
         .then((res) => console.log(res.status))
         .catch(err => console.log(err))
-
-    // AsyncStorage.getItem('token')
-    //     .then(r => {
-    //
-    //         axios.get(`/manager/product/chart` ,{
-    //             headers: {'Authorization': r}
-    //         })
-    //             .then((res) => console.log(res.status))
-    //             .catch(err => console.log(err))
-    //
-    //     })
-    //     .catch(err => console.log(err))
-    //
 
 }
 
