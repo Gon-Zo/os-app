@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import {StatusBar , SafeAreaView , Text , View , Button , StyleSheet , AsyncStorage} from 'react-native'
 import {useDispatch, useSelector} from "react-redux";
-import {onTest, updateLoginData} from "../../actions/statics";
+import { updateLoginData} from "../../actions/statics";
 import {isFalse} from "../../public/comm";
 
 export default ({navigation}) =>{
@@ -18,49 +18,11 @@ export default ({navigation}) =>{
         <>
             <StatusBar/>
             <SafeAreaView>
-                <View style={styles.test1}>
-                    <Text>
-                        Setting
-                    </Text>
-                </View>
                 <LoginBtnGroup navigation={navigation} isLogin={initData.isLogin.data} onUpdate={_onUpdate}/>
             </SafeAreaView>
         </>
     )
 }
-
-// function TestUpdate(props) {
-//
-//     let [flag, setFlag] = useState(props.flag)
-//
-//     useEffect(() => {
-//         setFlag(props.flag)
-//         console.log(">>>>>>>>>>>>>." + JSON.stringify(flag.data))
-//     }, [flag])
-//
-//     if (flag.data){
-//        return (
-//            <>
-//                <View>
-//                    <Text>
-//                        T
-//                    </Text>
-//                </View>
-//            </>
-//        )
-//     }else{
-//         return (
-//             <>
-//                 <View>
-//                     <Text>
-//                         F
-//                     </Text>
-//                 </View>
-//             </>
-//         )
-//     }
-//
-// }
 
 function LoginBtnGroup(props) {
 
@@ -74,14 +36,12 @@ function LoginBtnGroup(props) {
         return (
             <>
                 <View>
-                    <Button title="Auto Login 1"/>
-                    <Button title="Auto Login 2" onPress={() => {
-                        onTest()
-                    }}/>
+                    <View>
+                        <Button title={"Google"}/>
+                        <Button title={"FaceBook"}/>
+                        <Button title={"Kakao"}/>
+                    </View>
                     <Button title="로그인" onPress={() => navigation.navigate("Login")}/>
-                    <Button title="Auto Login 3" onPress={() => {
-                    }}/>
-
                 </View>
                 <Button title="Open Modal" onPress={() => navigation.navigate('SignUp')}/>
             </>
@@ -91,9 +51,9 @@ function LoginBtnGroup(props) {
         return (
             <>
                 <View>
-                    <Text>
-                        Login User
-                    </Text>
+
+
+
                     <Button title={"로그아웃"} onPress={() =>
                         AsyncStorage.removeItem("token")
                             .then(res => _onUpdate(false))
@@ -105,9 +65,3 @@ function LoginBtnGroup(props) {
     }
 
 }
-
-const styles = StyleSheet.create({
-    test1 : {
-        backgroundColor : '#f00'
-    }
-})
