@@ -14,9 +14,6 @@ const reducer = (state = initData, action) => {
             state.isLogin.data = action.data
             break;
         case ACTION_TYPE.LOGIN.DATA:
-
-            console.log("Update :: ", action.data)
-
             state.isLogin.type = STATE_TYPE.S
             state.isLogin.data = action.data
             break;

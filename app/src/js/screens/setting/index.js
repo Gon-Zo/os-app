@@ -94,11 +94,10 @@ function LoginBtnGroup(props) {
                     <Text>
                         Login User
                     </Text>
-                    <Button title={"로그아웃"} onPress={() => {
+                    <Button title={"로그아웃"} onPress={() =>
                         AsyncStorage.removeItem("token")
                             .then(res => _onUpdate(false))
-                            .catch(err => console.log(err))
-                    }}/>
+                            .catch(err => console.log(err))}/>
                 </View>
             </>
         )
