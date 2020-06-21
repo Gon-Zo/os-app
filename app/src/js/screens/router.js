@@ -5,11 +5,12 @@ import {createStackNavigator} from "@react-navigation/stack";
 const BottomNav = createMaterialBottomTabNavigator();
 import Ionicons from "react-native-vector-icons/Ionicons";
 import {APP_OS} from "../public/comm";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {BasketButton} from "./common/button";
 import {AsyncStorage} from "react-native";
 
 import * as Screen from './index'
+import {updateLoginData} from "../actions/statics";
 
 const BottomNavigation = ({navigation}) => {
 
@@ -65,11 +66,11 @@ const Router = () => {
 
     const initData = useSelector(state=>state.Statics , [])
 
+    const dispatch = useDispatch()
+
     useEffect(() => {
         AsyncStorage.getItem('token')
-            .then(res => {
-                initData.isLogin.data = res !== null
-            })
+            .then(res => updateLoginData(dispatch, res !== null))
             .catch(err => console.log(err))
     }, [])
 

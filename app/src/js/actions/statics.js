@@ -33,6 +33,8 @@ export function onTest() {
     axios.get(`/manager/product/chart`)
         .then((res) => console.log(res.status))
         .catch(err => console.log(err))
-
 }
 
+export function updateLoginData(dispatch, payload) {
+    dispatch(onLoginData(payload))
+}

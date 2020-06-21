@@ -49,7 +49,7 @@ export default ({navigation}) => {
                     <Button title={"Login"}
                             onPress={() => {
                                 const payload = {email: email, password: password}
-                                onLogin( dispatch ,navigation, payload)
+                                onLogin(dispatch, navigation, payload)
                             }}></Button>
 
                     <Button title={"Sign Up"} onPress={() => navigation.navigate("SignUp")}/>
