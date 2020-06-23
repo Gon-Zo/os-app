@@ -10,6 +10,8 @@ import {
 import {BackButton} from "../common/button";
 import {onLogin} from "../../actions/statics";
 import {useDispatch} from "react-redux";
+import {Text} from "react-native-paper";
+import {AppTextInput} from "../common/textInput";
 
 export default ({navigation}) => {
 
@@ -32,20 +34,30 @@ export default ({navigation}) => {
     return (
         <>
             <StatusBar></StatusBar>
-            <SafeAreaView style={[styles.wrap, {}]}>
+            <SafeAreaView style={[{
+                flex: 1,
+                justifyContent: 'center',
+                flexDirection: 'column',
+                backgroundColor : '#fff'
+            }]}>
 
-                <View style={styles.wrap}>
-                    <TextInput onChangeText={text => setEmail(text)} value={email}
-                               style={{backgroundColor: '#00f', height: 40}}/>
-                </View>
+                <AppTextInput
+                    label={"Email"}
+                    color={"#52af0a"}
+                    item={email}
+                    setItem={setEmail}
+                    isPassword={false}
+                />
 
-                <View style={[styles.wrap, {}]}>
-                    <TextInput onChangeText={text => setPassword(text)} value={password}
-                               style={{backgroundColor: '#f0f', height: 40}}/>
-                </View>
+                <AppTextInput
+                    label={"Passowrd"}
+                    color={"#52af0a"}
+                    item={password}
+                    setItem={setPassword}
+                    isPassword={true}
+                />
 
-                <View style={[styles.wrap, {}]}>
-
+                <View style={[]}>
                     <Button title={"Login"}
                             onPress={() => {
                                 const payload = {email: email, password: password}
@@ -53,16 +65,9 @@ export default ({navigation}) => {
                             }}></Button>
 
                     <Button title={"Sign Up"} onPress={() => navigation.navigate("SignUp")}/>
-
                 </View>
 
             </SafeAreaView>
         </>
     )
 }
-
-const styles = StyleSheet.create({
-    box: {
-        flex: 1,
-    }
-})
