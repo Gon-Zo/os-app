@@ -8,19 +8,20 @@ const setJwt = () => {
     return AsyncStorage.getItem("token")
         .then(res => {
             if (res != null) {
-                return setDecodeJwt(res)
+               // return parseJwt(to)
+                return res
             }
             return null;
         })
         .catch(err => console.log(err))
 }
 
-const setDecodeJwt = (jwt) => {
+function parseJwt (token) {
+    var base64Url = token.split('.')[1];
+    var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+    var jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
+        return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+    }).join(''));
 
-    const jwtDecode = require('jwt-decode');
-
-    const user =  jwtDecode.jwt_decode(jwt)
-
-    return user
-
-}
+    return JSON.parse(jsonPayload);
+};

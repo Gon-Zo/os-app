@@ -10,7 +10,6 @@ import {
 import {BackButton} from "../common/button";
 import {onLogin} from "../../actions/statics";
 import {useDispatch} from "react-redux";
-import {Text} from "react-native-paper";
 import {AppTextInput} from "../common/textInput";
 
 export default ({navigation}) => {

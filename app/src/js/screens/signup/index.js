@@ -1,6 +1,9 @@
-import React from 'react'
+import React, {useState} from 'react'
 import {View, Button ,  SafeAreaView, ScrollView , TextInput} from 'react-native'
 import {BackButton} from "../common/button";
+import {Text} from "react-native-paper";
+import _set from "@babel/runtime/helpers/esm/set";
+import {LineAndInputText} from "../common/textInput";
 
 export default ({navigation}) => {
 
@@ -15,7 +18,7 @@ export default ({navigation}) => {
     return (
         <>
             <SafeAreaView>
-                <ScrollView>
+                <ScrollView style={{}}>
                     <SignUpContent/>
                     <SsoSignUpContent/>
                 </ScrollView>
@@ -25,20 +28,27 @@ export default ({navigation}) => {
 }
 
 function SignUpContent(props) {
+
+    let [email ,setEmail] = useState('')
+
+    let [password, setPassword] = useState('')
+
     return(
         <>
-            <View>
-                <TextInput/>
-            </View>
-            <View>
-                <TextInput/>
-            </View>
-            <View>
-                <TextInput/>
-            </View>
+            <LineAndInputText title={'Email'}
+                              item={email}
+                              onItem={setEmail}
+                              color={"#f00"}
+                              isPassword={false}/>
+            <LineAndInputText title={'Password'}
+                              item={password}
+                              onItem={setPassword}
+                              color={"#f00"}
+                              isPassword={true}/>
         </>
     )
 }
+
 
 function SsoSignUpContent(props) {
     return(
