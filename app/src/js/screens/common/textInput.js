@@ -1,6 +1,40 @@
-import {StyleSheet, TextInput, View} from "react-native";
+import {StyleSheet, TextInput, View , TouchableOpacity} from "react-native";
 import {Text} from "react-native-paper";
 import React, {useState} from "react";
+import Ionicons from "react-native-vector-icons/Ionicons";
+
+function EyeIcon(props) {
+
+    const isShow = props.isShow === "password" ? true : false
+
+    let open = props.open
+
+    let _setOpen = props.setOpen
+
+    if (isShow)
+        return (
+            <TouchableOpacity
+                style={{
+                    position: 'absolute',
+                    right: 5,
+                    bottom: 0,
+                    width: 30,
+                    height : '100%',
+                    flexDirection : 'column',
+                    textAlign : 'center' ,
+                    justifyContent : 'center'
+                }}
+                onPress={() => {
+                    let nowOpen = !open
+                    _setOpen(nowOpen)
+                }}>
+                <Ionicons
+                    name={open ? "ios-eye" : "ios-eye-off"} color={"#424242"} size={29}
+                />
+            </TouchableOpacity>
+        )
+    else return (<></>)
+}
 
 export function LineAndInputText(props) {
 
@@ -16,7 +50,9 @@ export function LineAndInputText(props) {
 
     const title = props.title
 
-    const isPwd = props.isPassword
+    const type = props.type
+
+    let [flag, setFlag] = useState(type == "password" ? true : false)
 
     const resetStyle = () =>{
         setTextStyle({})
@@ -27,6 +63,7 @@ export function LineAndInputText(props) {
         setTextStyle({color: color, })
         setBorderStyle({borderBottomColor: color})
     }
+
 
     return (
         <View style={[{
@@ -49,7 +86,7 @@ export function LineAndInputText(props) {
                 }, textStyle
             ]}>{title}</Text>
             <TextInput style={{flex: 1, fontSize: 17, paddingLeft: 5}}
-                       secureTextEntry={isPwd}
+                       secureTextEntry={flag}
                        onChangeText={text => _setItem(text)} value={item}
                        onFocus={() => settingStyle()}
                        onBlur={() => {
@@ -59,7 +96,7 @@ export function LineAndInputText(props) {
                                settingStyle()
                            }
                        }}/>
-
+            <EyeIcon isShow={type} open={flag} setOpen={setFlag} />
         </View>
     )
 }
@@ -74,7 +111,9 @@ export function AppTextInput(props) {
 
     const item = props.item
 
-    const isPassword = props.isPassword
+    const type = props.type
+
+    let [flag, setFlag] = useState(type == "password" ? true : false)
 
     let [textStyle, setTextStyle] = useState({})
 
@@ -119,7 +158,7 @@ export function AppTextInput(props) {
                 fontSize: 16,
             }} onChangeText={text => setItem(text)}
                        value={item}
-                       secureTextEntry={isPassword}
+                       secureTextEntry={flag}
                        onFocus={() => settingStyle()}
                        onBlur={() => {
                            if (item == '' || typeof item == "undefined") {
@@ -129,6 +168,7 @@ export function AppTextInput(props) {
                            }
                        }}
             />
+            <EyeIcon isShow={type} open={flag} setOpen={setFlag} />
         </View>
     )
 }

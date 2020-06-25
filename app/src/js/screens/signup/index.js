@@ -39,12 +39,12 @@ function SignUpContent(props) {
                               item={email}
                               onItem={setEmail}
                               color={"#f00"}
-                              isPassword={false}/>
+                              type={"text"}/>
             <LineAndInputText title={'Password'}
                               item={password}
                               onItem={setPassword}
                               color={"#f00"}
-                              isPassword={true}/>
+                              type={"password"}/>
         </>
     )
 }

@@ -45,7 +45,7 @@ export default ({navigation}) => {
                     color={"#52af0a"}
                     item={email}
                     setItem={setEmail}
-                    isPassword={false}
+                    type={"text"}
                 />
 
                 <AppTextInput
@@ -53,7 +53,7 @@ export default ({navigation}) => {
                     color={"#52af0a"}
                     item={password}
                     setItem={setPassword}
-                    isPassword={true}
+                    type={"password"}
                 />
 
                 <View style={[]}>
