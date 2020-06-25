@@ -39,7 +39,6 @@ export default ({navigation}) => {
                 flexDirection: 'column',
                 backgroundColor : '#fff'
             }]}>
-
                 <AppTextInput
                     label={"Email"}
                     color={"#52af0a"}
@@ -47,15 +46,13 @@ export default ({navigation}) => {
                     setItem={setEmail}
                     type={"text"}
                 />
-
                 <AppTextInput
-                    label={"Passowrd"}
+                    label={"Password"}
                     color={"#52af0a"}
                     item={password}
                     setItem={setPassword}
                     type={"password"}
                 />
-
                 <View style={[]}>
                     <Button title={"Login"}
                             onPress={() => {
