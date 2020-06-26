@@ -4,6 +4,33 @@ import FontAwesome from "react-native-vector-icons/FontAwesome";
 import {APP_OS, isFalse} from "../../public/comm";
 import React from "react";
 
+export function LineButton() {
+    return(
+        <TouchableOpacity style={{
+            width : 170 ,
+            height : 40,
+            borderWidth : 2 ,
+            borderColor : '#00f'
+        }}
+        onPress={()=>{
+            alert("test success")
+        }}>
+            <View style={{
+                flex : 1 ,
+                flexDirection : 'column',
+                justifyContent : 'center'
+            }}>
+                <Text style={{
+                    textAlign : 'center' ,
+                    fontSize : 17 ,
+                    fontWeight : 'bold',
+                    color : '#00f'
+                }}>TEST</Text>
+            </View>
+        </TouchableOpacity>
+    )
+}
+
 export function BackButton(props) {
     const navigation = props.navigation
     return(
@@ -42,6 +69,8 @@ export function BasketButton(props) {
 
 export function IconButton(props) {
 
+    const style = props.style
+
     const bg = props.backgroundColor
 
     const color = props.color
@@ -57,7 +86,7 @@ export function IconButton(props) {
     return (
         <TouchableOpacity
             activeOpacity={1}
-            style={{
+            style={[{
                 backgroundColor: bg,
                 height: 40,
                 width: width,
@@ -65,7 +94,7 @@ export function IconButton(props) {
                 textAlign: 'center',
                 justifyContent: 'center',
                 flexDirection: 'row'
-            }}
+            }, style]}
             onPress={_onPress}>
             <View style={{
                 flex: 1,

@@ -8,9 +8,9 @@ import {APP_OS} from "../public/comm";
 import {useDispatch, useSelector} from "react-redux";
 import {BasketButton} from "./common/button";
 import {AsyncStorage} from "react-native";
-
 import * as Screen from './index'
 import {updateLoginData} from "../actions/statics";
+import {THEME} from "../public/colors";
 
 const BottomNavigation = ({navigation}) => {
 
@@ -64,14 +64,25 @@ const Stack = createStackNavigator()
 
 const Router = () => {
 
-    const initData = useSelector(state=>state.Statics , [])
-
     const dispatch = useDispatch()
 
     useEffect(() => {
+
         AsyncStorage.getItem('token')
             .then(res => updateLoginData(dispatch, res !== null))
             .catch(err => console.log(err))
+
+        AsyncStorage.getItem("theme")
+            .then(res => {
+                console.log("theme :: ", res)
+                if (res == null) {
+                    AsyncStorage.setItem("theme", THEME.L)
+                    console.log("LIGHT")
+                }
+
+            })
+            .catch(err => console.log(err))
+
     }, [])
 
     return (

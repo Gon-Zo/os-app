@@ -23,7 +23,6 @@ axios.interceptors.response.use(response => {
     return response;
 }, error => {
     console.log('error', error)
-    console.log( 'error str' , JSON.stringify(error))
     return Promise.reject(error);
 });
 
@@ -35,5 +34,9 @@ function checkingToToken(res) {
         })
         .catch(err => console.log(err))
 }
+
+ErrorUtils.setGlobalHandler(()=>{
+    console.log("??????????")
+})
 
 AppRegistry.registerComponent(appName, () => App);

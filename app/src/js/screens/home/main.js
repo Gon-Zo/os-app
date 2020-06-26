@@ -8,13 +8,17 @@ import {
     TouchableOpacity
 } from 'react-native'
 import { Card, CardTitle, CardContent, CardAction, CardButton, CardImage } from 'react-native-cards';
+import {GET_COLOR} from "../../public/colors";
 
 export default ({navigation}) => {
 
     return (
         <>
             <StatusBar></StatusBar>
-            <SafeAreaView style={{flex: 1}}>
+            <SafeAreaView style={{
+                flex: 1,
+                backgroundColor : GET_COLOR().BACKGROUND_COLOR
+            }}>
                 <ScrollView>
                     <BestCardView title={'Most Top5 Items'} navigation={navigation}/>
                     <BestCardView title={'Best Top5 Items'} navigation={navigation}/>

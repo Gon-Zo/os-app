@@ -1,3 +1,36 @@
+import {AsyncStorage} from 'react-native'
+
+export const THEME = {
+        L: "LIGHT",
+        D: "DARK"
+}
+
+export function GET_COLOR() {
+        return AsyncStorage.getItem("theme")
+            .then(res => {
+                    return COLORS[`${res}`]
+            }).catch(err => console.log(err))
+
+        // return COLORS[`${val ? THEME.D : THEME.L}`]
+}
+
+const COLORS = {
+        DARK: {
+                BACKGROUND_COLOR: "#19181A",
+                fg1: "#26252B",
+                fg2 : "#3C3B40",
+                primary : "#FFFFFF",
+                secondary : "#F3F3F8"
+        },
+        LIGHT : {
+                BACKGROUND_COLOR: "#F4F2F7",
+                fg1: "#FFFFFF",
+                fg2 : "#F9F9F9",
+                primary : "#27252C",
+                secondary : "#8A898E"
+        }
+}
+
 export const RandomColor =
     [
         {name: 'TURQUOISE', code: '#1abc9c'},
