@@ -7,7 +7,7 @@ import {StatusBar,
     Switch
 } from 'react-native'
 import {useDispatch, useSelector} from "react-redux";
-import { updateLoginData} from "../../actions/statics";
+import {onIsTheme, updateLoginData} from "../../actions/statics";
 import {isFalse} from "../../public/comm";
 import {IconButton, LineButton, TextButton} from "../common/button";
 import {GET_COLOR, THEME} from "../../public/colors";
@@ -31,15 +31,20 @@ export default ({navigation}) =>{
                 backgroundColor: GET_COLOR().BACKGROUND_COLOR
             }}>
                 <MyInfoContent navigation={navigation} isLogin={initData.isLogin.data} onUpdate={_onUpdate}/>
-                <SettingContent/>
+                <SettingContent theme={initData.isTheme} dispatch={dispatch}/>
             </SafeAreaView>
         </>
     )
 }
 
-function SettingContent() {
+function SettingContent(props) {
 
-    const [isEnabled, setIsEnabled] = useState(false);
+    const theme = props.theme.data
+
+    const [isEnabled, setIsEnabled] = useState(theme);
+
+    const dispatch = props.dispatch
+
 
     return (
         <View style={{
@@ -53,6 +58,7 @@ function SettingContent() {
                 ios_backgroundColor="#3e3e3e"
                 onValueChange={(val) => {
                     setIsEnabled(val)
+                    onIsTheme(dispatch , val)
                     let item = val ? THEME.D : THEME.L
                     AsyncStorage.setItem("theme", item).then(r => console.log("success"))
                 }}

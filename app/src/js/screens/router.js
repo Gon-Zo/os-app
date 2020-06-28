@@ -9,7 +9,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {BasketButton} from "./common/button";
 import AsyncStorage from '@react-native-community/async-storage';
 import * as Screen from './index'
-import {updateLoginData} from "../actions/statics";
+import {onIsTheme, updateLoginData} from "../actions/statics";
 import {THEME} from "../public/colors";
 
 const BottomNavigation = ({navigation}) => {
@@ -74,12 +74,12 @@ const Router = () => {
 
         AsyncStorage.getItem("theme")
             .then(res => {
-                console.log("theme :: ", res)
+                console.log("them result :: " + res)
                 if (res == null) {
                     AsyncStorage.setItem("theme", THEME.L)
-                    console.log("LIGHT")
+                    onIsTheme( dispatch, false)
                 }
-
+                onIsTheme(dispatch, res == THEME.D)
             })
             .catch(err => console.log(err))
 

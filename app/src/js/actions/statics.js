@@ -1,5 +1,5 @@
 import axios from "axios";
-import {onLoginData, onLoginError, onLoginLoad} from "../reducers/statics";
+import {onLoginData, onLoginError, onLoginLoad, onThemeData, onThemeError, onThemeLoad} from "../reducers/statics";
 import AsyncStorage from '@react-native-community/async-storage';
 
 export function onLogin(dispatch, navigation, payload) {
@@ -37,4 +37,15 @@ export function onTest() {
 
 export function updateLoginData(dispatch, payload) {
     dispatch(onLoginData(payload))
+}
+
+export function onIsTheme(dispatch, payload) {
+
+    dispatch(onThemeLoad())
+    try {
+        dispatch(onThemeData(payload))
+    } catch (e) {
+        dispatch(onThemeError(e))
+    }
+
 }

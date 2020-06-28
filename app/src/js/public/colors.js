@@ -1,4 +1,4 @@
-import AsyncStorage from '@react-native-community/async-storage';
+import {useSelector} from "react-redux";
 
 export const THEME = {
         L: "LIGHT",
@@ -6,11 +6,9 @@ export const THEME = {
 }
 
 export function GET_COLOR() {
-        return COLORS[`LIGHT`]
-        // return AsyncStorage.getItem("theme")
-        //     .then(res => {
-        //             return COLORS[`${res}`]
-        //     }).catch(err => console.log(err))
+        const isTheme = useSelector(state => state.Statics, []).isTheme.data
+        console.log("TEST SUCCESS" , JSON.stringify(isTheme))
+        return COLORS[`${isTheme ? THEME.D : THEME.L}`]
 }
 
 const COLORS = {
