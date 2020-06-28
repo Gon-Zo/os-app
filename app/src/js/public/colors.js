@@ -17,7 +17,11 @@ const COLORS = {
                 fg1: "#26252B",
                 fg2: "#3C3B40",
                 PRIMARY: "#FFFFFF",
-                SECONDARY: "#F3F3F8"
+                SECONDARY: "#F3F3F8",
+                SUCCESS: "#BB86FC",
+                DANGER: "#DD3544",
+                WARNING: "#FFC106",
+                INFO: "#14A3B8"
         },
         LIGHT: {
                 BACKGROUND_COLOR: "#F4F2F7",

@@ -74,12 +74,9 @@ const Router = () => {
 
         AsyncStorage.getItem("theme")
             .then(res => {
-                console.log("them result :: " + res)
-                if (res == null) {
-                    AsyncStorage.setItem("theme", THEME.L)
-                    onIsTheme( dispatch, false)
-                }
-                onIsTheme(dispatch, res == THEME.D)
+                const text = res == null ? THEME.L : res
+                AsyncStorage.setItem("theme", text)
+                onIsTheme(dispatch, text == THEME.D)
             })
             .catch(err => console.log(err))
 
