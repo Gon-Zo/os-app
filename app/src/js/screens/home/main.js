@@ -42,7 +42,6 @@ function BestCardView(props) {
                     color: GET_COLOR().PRIMARY,
                     fontSize: 20,
                     fontWeight : 'bold',
-                    // fontFamily : "BMHANNA"
                 }}>  {title}</Text>
             </View>
             <ScrollView horizontal={true}>

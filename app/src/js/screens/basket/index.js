@@ -7,7 +7,7 @@ import {View,
     ScrollView
 } from 'react-native'
 import { FlatGrid  , SectionGrid } from 'react-native-super-grid';
-import {RandomColor} from "../../public/colors";
+import {GET_COLOR, RandomColor} from "../../public/colors";
 import {BackButton} from "../common/button";
 
 export default ({navigation}) => {
@@ -27,7 +27,10 @@ export default ({navigation}) => {
     return (
         <>
             <StatusBar/>
-            <SafeAreaView>
+            <SafeAreaView style={{
+                flex: 1,
+                backgroundColor : GET_COLOR().BACKGROUND_COLOR
+            }}>
                 <ScrollView>
                     <ScrollView nestedScrollEnabled={true}>
                         <FlatGrid

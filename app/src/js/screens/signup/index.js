@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import {View, Button ,  SafeAreaView, ScrollView } from 'react-native'
 import {BackButton} from "../common/button";
 import {LineAndInputText} from "../common/textInput";
+import {GET_COLOR} from "../../public/colors";
 
 export default ({navigation}) => {
 
@@ -15,7 +16,10 @@ export default ({navigation}) => {
 
     return (
         <>
-            <SafeAreaView>
+            <SafeAreaView style={{
+                flex: 1,
+                backgroundColor : GET_COLOR().BACKGROUND_COLOR
+            }}>
                 <ScrollView style={{}}>
                     <SignUpContent/>
                     <SsoSignUpContent/>

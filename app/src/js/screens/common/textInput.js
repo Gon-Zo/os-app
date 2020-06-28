@@ -25,12 +25,11 @@ function EyeIcon(props) {
                     textAlign : 'center' ,
                     justifyContent : 'center'
                 }}
-                onPress={() => {
-                    let nowOpen = !open
+                onPress={() => { let nowOpen = !open
                     _setOpen(nowOpen)
                 }}>
                 <Ionicons
-                    name={open ? "ios-eye-off" : "ios-eye"} color={"#424242"} size={29}
+                    name={open ? "ios-eye-off" : "ios-eye"} color={GET_COLOR().PRIMARY} size={29}
                 />
             </TouchableOpacity>
         )
@@ -173,7 +172,3 @@ export function AppTextInput(props) {
         </View>
     )
 }
-
-const styles = StyleSheet.create({
-})
-

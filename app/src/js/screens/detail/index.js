@@ -1,5 +1,6 @@
 import React from 'react'
 import { Image , SafeAreaView, View, Text, Button, ScrollView} from 'react-native'
+import {GET_COLOR} from "../../public/colors";
 
 export default ({route , navigation}) => {
 
@@ -8,7 +9,10 @@ export default ({route , navigation}) => {
 
     return (
         <>
-            <SafeAreaView>
+            <SafeAreaView style={{
+                flex: 1,
+                backgroundColor : GET_COLOR().BACKGROUND_COLOR
+            }}>
                 <Button title={"Back"} onPress={()=>{
                     navigation.goBack()
                 }} />

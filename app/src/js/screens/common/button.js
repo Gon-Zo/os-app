@@ -17,6 +17,8 @@ export function TextButton(props) {
 
     const width = typeof  props.width  === "undefined" ? 200 : props.width
 
+    const isBold = props.isBold
+
     return (
         <TouchableOpacity
             activeOpacity={1}
@@ -30,12 +32,14 @@ export function TextButton(props) {
                 flexDirection: 'column',
                 justifyContent: 'center',
             }}>
-                <Text style={{
+                <Text style={[{
                     textAlign: 'center',
                     // fontWeight: "bold",
-                    fontSize: width / 10 ,
+                    fontSize: width / 10,
                     color: color
-                }}>
+                }, isBold ? {
+                    fontWeight: "bold",
+                } : {}]}>
                     {title}
                 </Text>
             </View>

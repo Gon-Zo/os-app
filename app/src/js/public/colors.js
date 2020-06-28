@@ -14,25 +14,29 @@ export function GET_COLOR() {
 const COLORS = {
         DARK: {
                 BACKGROUND_COLOR: "#19181A",
-                fg1: "#26252B",
-                fg2: "#3C3B40",
+                FG1: "#26252B",
+                FG2: "#3C3B40",
                 PRIMARY: "#FFFFFF",
                 SECONDARY: "#F3F3F8",
                 SUCCESS: "#BB86FC",
                 DANGER: "#DD3544",
                 WARNING: "#FFC106",
-                INFO: "#14A3B8"
+                INFO: "#14A3B8",
+                INACTIVE_COLOR : "#c9c9c9",
+                ACTIVE_COLOR :  "#BB86FC" ,
         },
         LIGHT: {
                 BACKGROUND_COLOR: "#F4F2F7",
-                fg1: "#FFFFFF",
-                fg2: "#F9F9F9",
+                FG1: "#FFFFFF",
+                FG2: "#F9F9F9",
                 PRIMARY: "#27252C",
                 SECONDARY: "#8A898E",
                 SUCCESS: "#28A744",
                 DANGER: "#DD3544",
                 WARNING: "#FFC106",
-                INFO: "#14A3B8"
+                INFO: "#14A3B8",
+                INACTIVE_COLOR : "#c9c9c9",
+                ACTIVE_COLOR :  "#27252C" ,
         }
 }
 

@@ -59,7 +59,7 @@ function SettingContent(props) {
                 onValueChange={(val) => {
                     setIsEnabled(val)
                     onIsTheme(dispatch , val)
-                    let item = val ? THEME.D : THEME.L
+                    const item = val ? THEME.D : THEME.L
                     AsyncStorage.setItem("theme", item).then(r => console.log("success"))
                 }}
                 value={isEnabled}
@@ -121,6 +121,7 @@ function MyInfoContent(props) {
                             margin : 10
                         }}
                         color={GET_COLOR().SUCCESS}
+                        isBold={true}
                         title={"Login"}
                         onPress={()=> navigation.navigate("Login")}
                     />

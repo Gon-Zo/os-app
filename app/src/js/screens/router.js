@@ -10,7 +10,7 @@ import {BasketButton} from "./common/button";
 import AsyncStorage from '@react-native-community/async-storage';
 import * as Screen from './index'
 import {onIsTheme, updateLoginData} from "../actions/statics";
-import {THEME} from "../public/colors";
+import {GET_COLOR, THEME} from "../public/colors";
 
 const BottomNavigation = ({navigation}) => {
 
@@ -26,12 +26,14 @@ const BottomNavigation = ({navigation}) => {
 
     }, [navigation]);
 
+    const color = GET_COLOR()
+
     return (
             <BottomNav.Navigator
                 initialRouteName="Home"
-                activeColor="#3e2465"
-                inactiveColor="#c9c9c9"
-                barStyle={{backgroundColor: '#ffffff'}}>
+                activeColor={color.ACTIVE_COLOR}
+                inactiveColor={color.INACTIVE_COLOR}
+                barStyle={{backgroundColor: color.FG1}}>
 
                 <BottomNav.Screen name="Home"
                                   component={Screen.Home}
@@ -86,12 +88,12 @@ const Router = () => {
         <NavigationContainer>
             <Stack.Navigator>
                 <Stack.Screen name="Main" component={BottomNavigation}/>
-                <Stack.Screen name="Basket" component={Screen.SignUp}/>
+                <Stack.Screen name="Basket" component={Screen.Basket}/>
                 <Stack.Screen name="Login" component={Screen.Login}/>
                 <Stack.Screen name="SignUp" component={Screen.SignUp}/>
-           </Stack.Navigator>
-       </NavigationContainer>
-   )
+            </Stack.Navigator>
+        </NavigationContainer>
+    )
 }
 
 export default Router
