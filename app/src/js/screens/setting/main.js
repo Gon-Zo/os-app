@@ -4,7 +4,6 @@ import {StatusBar,
     Text,
     View,
     Button,
-    AsyncStorage,
     Switch
 } from 'react-native'
 import {useDispatch, useSelector} from "react-redux";
@@ -12,6 +11,7 @@ import { updateLoginData} from "../../actions/statics";
 import {isFalse} from "../../public/comm";
 import {IconButton, LineButton} from "../common/button";
 import {GET_COLOR, THEME} from "../../public/colors";
+import AsyncStorage from '@react-native-community/async-storage';
 
 export default ({navigation}) =>{
 
@@ -19,19 +19,9 @@ export default ({navigation}) =>{
 
     const dispatch = useDispatch();
 
-    // let [theme, setTheme] = useState(false)
-
     let _onUpdate = (val) => {
         updateLoginData(dispatch, val)
     }
-
-    // useEffect(() => {
-    //
-    //     AsyncStorage.getItem("theme" )
-    //         .then(res => setTheme(res == THEME.D))
-    //         .catch(err=>console.log(err))
-    //
-    // }, [])
 
     return (
         <>
@@ -64,7 +54,6 @@ function SettingContent() {
                 onValueChange={(val) => {
                     setIsEnabled(val)
                     let item = val ? THEME.D : THEME.L
-                    console.log(item)
                     AsyncStorage.setItem("theme", item).then(r => console.log("success"))
                 }}
                 value={isEnabled}

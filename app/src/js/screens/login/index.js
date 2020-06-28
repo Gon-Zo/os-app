@@ -4,8 +4,6 @@ import {
     Button,
     SafeAreaView,
     View,
-    TextInput,
-    StyleSheet,
 } from 'react-native'
 import {BackButton} from "../common/button";
 import {onLogin} from "../../actions/statics";
@@ -54,8 +52,7 @@ export default ({navigation}) => {
                     type={"password"}
                 />
                 <View style={[]}>
-                    <Button title={"Login"}
-                            onPress={() => {
+                    <Button title={"Login"} onPress={() => {
                                 const payload = {email: email, password: password}
                                 onLogin(dispatch, navigation, payload)
                             }}></Button>

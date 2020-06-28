@@ -1,8 +1,6 @@
 import React, {useState} from 'react'
-import {View, Button ,  SafeAreaView, ScrollView , TextInput} from 'react-native'
+import {View, Button ,  SafeAreaView, ScrollView } from 'react-native'
 import {BackButton} from "../common/button";
-import {Text} from "react-native-paper";
-import _set from "@babel/runtime/helpers/esm/set";
 import {LineAndInputText} from "../common/textInput";
 
 export default ({navigation}) => {
