@@ -1,4 +1,4 @@
-import {AsyncStorage} from 'react-native'
+import AsyncStorage from '@react-native-community/async-storage';
 
 export const THEME = {
         L: "LIGHT",
@@ -6,28 +6,31 @@ export const THEME = {
 }
 
 export function GET_COLOR() {
-        return AsyncStorage.getItem("theme")
-            .then(res => {
-                    return COLORS[`${res}`]
-            }).catch(err => console.log(err))
-
-        // return COLORS[`${val ? THEME.D : THEME.L}`]
+        return COLORS[`LIGHT`]
+        // return AsyncStorage.getItem("theme")
+        //     .then(res => {
+        //             return COLORS[`${res}`]
+        //     }).catch(err => console.log(err))
 }
 
 const COLORS = {
         DARK: {
                 BACKGROUND_COLOR: "#19181A",
                 fg1: "#26252B",
-                fg2 : "#3C3B40",
-                primary : "#FFFFFF",
-                secondary : "#F3F3F8"
+                fg2: "#3C3B40",
+                PRIMARY: "#FFFFFF",
+                SECONDARY: "#F3F3F8"
         },
-        LIGHT : {
+        LIGHT: {
                 BACKGROUND_COLOR: "#F4F2F7",
                 fg1: "#FFFFFF",
-                fg2 : "#F9F9F9",
-                primary : "#27252C",
-                secondary : "#8A898E"
+                fg2: "#F9F9F9",
+                PRIMARY: "#27252C",
+                SECONDARY: "#8A898E",
+                SUCCESS: "#28A744",
+                DANGER: "#DD3544",
+                WARNING: "#FFC106",
+                INFO: "#14A3B8"
         }
 }
 

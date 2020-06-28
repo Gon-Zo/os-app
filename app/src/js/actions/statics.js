@@ -1,6 +1,6 @@
 import axios from "axios";
 import {onLoginData, onLoginError, onLoginLoad} from "../reducers/statics";
-import {AsyncStorage} from 'react-native'
+import AsyncStorage from '@react-native-community/async-storage';
 
 export function onLogin(dispatch, navigation, payload) {
 

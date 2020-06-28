@@ -2,6 +2,7 @@ import {StyleSheet, TextInput, View , TouchableOpacity} from "react-native";
 import {Text} from "react-native-paper";
 import React, {useState} from "react";
 import Ionicons from "react-native-vector-icons/Ionicons";
+import {GET_COLOR} from "../../public/colors";
 
 function EyeIcon(props) {
 
@@ -29,7 +30,7 @@ function EyeIcon(props) {
                     _setOpen(nowOpen)
                 }}>
                 <Ionicons
-                    name={open ? "ios-eye" : "ios-eye-off"} color={"#424242"} size={29}
+                    name={open ? "ios-eye-off" : "ios-eye"} color={"#424242"} size={29}
                 />
             </TouchableOpacity>
         )
@@ -146,7 +147,7 @@ export function AppTextInput(props) {
                 zIndex: 1,
                 fontSize: 16,
                 fontWeight: 'bold',
-                backgroundColor: '#fff',
+                backgroundColor: GET_COLOR().BACKGROUND_COLOR,
                 color: '#c9c9c9',
             }, textStyle]}>
                 {label}

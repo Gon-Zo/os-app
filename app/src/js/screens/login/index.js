@@ -9,6 +9,7 @@ import {BackButton} from "../common/button";
 import {onLogin} from "../../actions/statics";
 import {useDispatch} from "react-redux";
 import {AppTextInput} from "../common/textInput";
+import {GET_COLOR} from "../../public/colors";
 
 export default ({navigation}) => {
 
@@ -35,18 +36,18 @@ export default ({navigation}) => {
                 flex: 1,
                 justifyContent: 'center',
                 flexDirection: 'column',
-                backgroundColor : '#fff'
+                backgroundColor : GET_COLOR().BACKGROUND_COLOR
             }]}>
                 <AppTextInput
                     label={"Email"}
-                    color={"#52af0a"}
+                    color={GET_COLOR().PRIMARY}
                     item={email}
                     setItem={setEmail}
                     type={"text"}
                 />
                 <AppTextInput
                     label={"Password"}
-                    color={"#52af0a"}
+                    color={GET_COLOR().PRIMARY}
                     item={password}
                     setItem={setPassword}
                     type={"password"}

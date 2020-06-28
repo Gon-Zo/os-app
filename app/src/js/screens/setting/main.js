@@ -9,7 +9,7 @@ import {StatusBar,
 import {useDispatch, useSelector} from "react-redux";
 import { updateLoginData} from "../../actions/statics";
 import {isFalse} from "../../public/comm";
-import {IconButton, LineButton} from "../common/button";
+import {IconButton, LineButton, TextButton} from "../common/button";
 import {GET_COLOR, THEME} from "../../public/colors";
 import AsyncStorage from '@react-native-community/async-storage';
 
@@ -43,12 +43,12 @@ function SettingContent() {
 
     return (
         <View style={{
-            flex : 1
+            flex: 1
         }}>
             <Text>Setting Content</Text>
 
             <Switch
-                trackColor={{ false: "#767577", true: "#81b0ff" }}
+                trackColor={{false: "#767577", true: "#81b0ff"}}
                 thumbColor={isEnabled ? "#f5dd4b" : "#f4f3f4"}
                 ios_backgroundColor="#3e3e3e"
                 onValueChange={(val) => {
@@ -109,7 +109,29 @@ function MyInfoContent(props) {
                             navigation.navigate("Login")
                         }}
                     />
-                    <LineButton/>
+
+                    <TextButton
+                        style={{
+                            margin : 10
+                        }}
+                        color={GET_COLOR().SUCCESS}
+                        title={"Login"}
+                        onPress={()=> navigation.navigate("Login")}
+                    />
+
+
+                    <TextButton
+                        style={{
+                            margin : 10
+                        }}
+                        width={200}
+                        color={GET_COLOR().SECONDARY}
+                        title={"Sign Up"}
+                        onPress={()=>{
+                            navigation.navigate("SignUp")
+                        }}
+                    />
+
                 </View>
             </View>
         )

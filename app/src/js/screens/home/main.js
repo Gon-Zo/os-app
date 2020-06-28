@@ -40,7 +40,7 @@ function BestCardView(props) {
             <View>
                 <Text style={{
                     color: '#424242', fontSize: 20,
-                    // fontWeight : 'bold',
+                    fontWeight : 'bold',
                     // fontFamily : "BMHANNA"
                 }}>  {title}</Text>
             </View>

@@ -3,29 +3,83 @@ import Ionicons from "react-native-vector-icons/Ionicons";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 import {APP_OS, isFalse} from "../../public/comm";
 import React from "react";
+import {GET_COLOR} from "../../public/colors";
 
-export function LineButton() {
-    return(
-        <TouchableOpacity style={{
-            width : 170 ,
-            height : 40,
-            borderWidth : 2 ,
-            borderColor : '#00f'
-        }}
-        onPress={()=>{
-            alert("test success")
-        }}>
+export function TextButton(props) {
+
+    const title = props.title
+
+    const style = props.style
+
+    const color = typeof props.color == "undefined" ? GET_COLOR().PRIMARY : props.color
+
+    const _onPress = props.onPress
+
+    const width = typeof  props.width  === "undefined" ? 200 : props.width
+
+    return (
+        <TouchableOpacity
+            activeOpacity={1}
+            style={[{
+                width: width,
+                height: 40,
+            }, style]}
+            onPress={_onPress}>
             <View style={{
-                flex : 1 ,
-                flexDirection : 'column',
-                justifyContent : 'center'
+                flex: 1,
+                flexDirection: 'column',
+                justifyContent: 'center',
             }}>
                 <Text style={{
-                    textAlign : 'center' ,
-                    fontSize : 17 ,
-                    fontWeight : 'bold',
-                    color : '#00f'
-                }}>TEST</Text>
+                    textAlign: 'center',
+                    // fontWeight: "bold",
+                    fontSize: width / 10 ,
+                    color: color
+                }}>
+                    {title}
+                </Text>
+            </View>
+        </TouchableOpacity>
+    )
+
+}
+
+export function LineButton(props) {
+
+    const title = props.title
+
+    const _onPress = props.onPress
+
+    const color = props.color
+
+    const style = props.style
+
+    const width = typeof props.width == "undefined" ? 170 : props.width
+
+    return (
+        <TouchableOpacity
+            activeOpacity={1}
+            style={[{
+                width: width,
+                height: 40,
+                borderWidth: 1,
+                borderColor: color,
+                borderRadius: 10,
+                // textAlign: 'center',
+                // justifyContent: 'center',
+                // flexDirection: 'row',
+            }, style]}
+            onPress={_onPress}>
+            <View style={{
+                flex: 1,
+                flexDirection: 'column',
+                justifyContent: 'center'
+            }}>
+                <Text style={{
+                    textAlign: 'center',
+                    fontSize:  width / 10 ,
+                    color: color
+                }}>{title}</Text>
             </View>
         </TouchableOpacity>
     )
@@ -110,7 +164,6 @@ export function IconButton(props) {
                 textAlign: 'center',
                 justifyContent: 'center',
                 flexDirection: 'column',
-                // paddingLeft: (width / 10),
             }}>
                 <Text style={{
                     color: color,
