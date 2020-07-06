@@ -69,9 +69,6 @@ export function LineButton(props) {
                 borderWidth: 1,
                 borderColor: color,
                 borderRadius: 10,
-                // textAlign: 'center',
-                // justifyContent: 'center',
-                // flexDirection: 'row',
             }, style]}
             onPress={_onPress}>
             <View style={{

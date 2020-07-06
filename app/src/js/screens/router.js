@@ -84,9 +84,15 @@ const Router = () => {
 
     }, [])
 
+    const color = GET_COLOR()
+
     return (
         <NavigationContainer>
-            <Stack.Navigator>
+            <Stack.Navigator
+                screenOptions={{
+                    headerTintColor: color.ACTIVE_COLOR,
+                    headerStyle: { backgroundColor: color.FG1 },
+                }}>
                 <Stack.Screen name="Main" component={BottomNavigation}/>
                 <Stack.Screen name="Basket" component={Screen.Basket}/>
                 <Stack.Screen name="Login" component={Screen.Login}/>

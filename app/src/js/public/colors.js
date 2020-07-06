@@ -7,7 +7,6 @@ export const THEME = {
 
 export function GET_COLOR() {
         const isTheme = useSelector(state => state.Statics, []).isTheme.data
-        console.log("TEST SUCCESS" , JSON.stringify(isTheme))
         return COLORS[`${isTheme ? THEME.D : THEME.L}`]
 }
 

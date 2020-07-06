@@ -1,16 +1,14 @@
-import React, {useEffect, useState} from 'react'
+import React from 'react'
 import {StatusBar,
     SafeAreaView,
-    Text,
     View,
     Button,
-    Switch
 } from 'react-native'
 import {useDispatch, useSelector} from "react-redux";
-import {onIsTheme, updateLoginData} from "../../actions/statics";
+import { updateLoginData} from "../../actions/statics";
 import {isFalse} from "../../public/comm";
-import {IconButton, LineButton, TextButton} from "../common/button";
-import {GET_COLOR, THEME} from "../../public/colors";
+import {IconButton , TextButton} from "../common/button";
+import {GET_COLOR} from "../../public/colors";
 import AsyncStorage from '@react-native-community/async-storage';
 
 export default ({navigation}) =>{
@@ -31,63 +29,26 @@ export default ({navigation}) =>{
                 backgroundColor: GET_COLOR().BACKGROUND_COLOR
             }}>
                 <MyInfoContent navigation={navigation} isLogin={initData.isLogin.data} onUpdate={_onUpdate}/>
-                <SettingContent theme={initData.isTheme} dispatch={dispatch}/>
             </SafeAreaView>
         </>
     )
 }
 
-function SettingContent(props) {
-
-    const theme = props.theme.data
-
-    const [isEnabled, setIsEnabled] = useState(theme);
-
-    const dispatch = props.dispatch
-
-
-    return (
-        <View style={{
-            flex: 1
-        }}>
-            <Text>Setting Content</Text>
-
-            <Switch
-                trackColor={{false: "#767577", true: "#81b0ff"}}
-                thumbColor={isEnabled ? "#f5dd4b" : "#f4f3f4"}
-                ios_backgroundColor="#3e3e3e"
-                onValueChange={(val) => {
-                    setIsEnabled(val)
-                    onIsTheme(dispatch , val)
-                    const item = val ? THEME.D : THEME.L
-                    AsyncStorage.setItem("theme", item).then(r => console.log("success"))
-                }}
-                value={isEnabled}
-            />
-
-        </View>
-    )
-}
 
 function MyInfoContent(props) {
 
     const navigation = props.navigation
 
-    const isLogin = props.isLogin
-
     const _onUpdate = props.onUpdate
 
-    if (isFalse(isLogin)) {
-        return (
-            <View style={{
-                justifyContent: 'center',
-                textAlign: 'center',
-                flexDirection: 'row',
-                flex : 1,
-            }}>
-                <View style={{
-                    flexDirection: 'column'
-                }}>
+    function LoginContent(props) {
+
+        const isLogin = props.isLogin
+
+        if (isFalse(isLogin)) {
+
+            return (
+                <>
                     <IconButton
                         style={{
                             margin: 10,
@@ -118,43 +79,66 @@ function MyInfoContent(props) {
 
                     <TextButton
                         style={{
-                            margin : 10
+                            margin: 10
                         }}
                         color={GET_COLOR().SUCCESS}
                         isBold={true}
                         title={"Login"}
-                        onPress={()=> navigation.navigate("Login")}
+                        onPress={() => navigation.navigate("Login")}
                     />
 
 
                     <TextButton
                         style={{
-                            margin : 10
+                            margin: 10
                         }}
                         width={200}
                         color={GET_COLOR().SECONDARY}
                         title={"Sign Up"}
-                        onPress={()=>{
+                        onPress={() => {
                             navigation.navigate("SignUp")
                         }}
                     />
 
-                </View>
-            </View>
-        )
-    } else {
-
-        return (
-            <>
-                <View>
+                </>
+            )
+        } else {
+            return (
+                <>
                     <Button title={"로그아웃"} onPress={() =>
                         AsyncStorage.removeItem("token")
                             .then(res => _onUpdate(false))
                             .catch(err => console.log(err))}/>
-                </View>
-            </>
-        )
+
+                    <TextButton
+                        style={{
+                            margin: 10
+                        }}
+                        width={200}
+                        color={GET_COLOR().SECONDARY}
+                        title={"Application Setting"}
+                        onPress={() => {
+                            navigation.navigate("Application")
+                        }}
+                    />
+                </>
+            )
+        }
 
     }
+
+    return (
+        <View style={{
+            justifyContent: 'center',
+            flex: 1,
+        }}>
+            <View style={{
+                flexDirection: 'column',
+                alignItems: 'center'
+            }}>
+                <LoginContent isLogin={props.isLogin}/>
+            </View>
+        </View>
+    )
 
 }
