@@ -4,9 +4,10 @@ import {NavigationContainer} from '@react-navigation/native'
 import {createStackNavigator} from "@react-navigation/stack";
 const BottomNav = createMaterialBottomTabNavigator();
 import Ionicons from "react-native-vector-icons/Ionicons";
+import FontAwesome from "react-native-vector-icons/FontAwesome";
 import {APP_OS} from "../public/comm";
 import {useDispatch, useSelector} from "react-redux";
-import {BasketButton} from "./common/button";
+import {LoginButton} from "./common/button";
 import AsyncStorage from '@react-native-community/async-storage';
 import * as Screen from './index'
 import {onIsTheme, updateLoginData} from "../actions/statics";
@@ -20,7 +21,7 @@ const BottomNavigation = ({navigation}) => {
 
         navigation.setOptions({
             headerRight: () => (
-                <BasketButton navigation={navigation} isLogin={initData.isLogin}/>
+                <LoginButton navigation={navigation} isLogin={initData.isLogin}/>
             ),
         });
 
@@ -38,7 +39,7 @@ const BottomNavigation = ({navigation}) => {
                 <BottomNav.Screen name="Home"
                                   component={Screen.Home}
                                   options={{
-                                      tabBarLabel: "Home",
+                                      tabBarLabel: "홈",
                                       tabBarIcon: ({color}) => (<Ionicons name={`${APP_OS}-home`} color={color} size={24}/>)
                                   }}
                 />
@@ -46,16 +47,24 @@ const BottomNavigation = ({navigation}) => {
                 <BottomNav.Screen name="Store"
                                   component={Screen.Store}
                                   options={{
-                                      tabBarLabel: "Store",
+                                      tabBarLabel: "스토어",
                                       tabBarIcon: ({color}) => (<Ionicons name={`${APP_OS}-business`} color={color} size={24}/>)
+                                  }}
+                />
+
+                <BottomNav.Screen name="Basket"
+                                  component={Screen.Basket}
+                                  options={{
+                                      tabBarLabel: "장바구니",
+                                      tabBarIcon: ({color}) => (<FontAwesome name={`shopping-cart`} color={color} size={24}/>)
                                   }}
                 />
 
                 <BottomNav.Screen name="Setting"
                                   component={Screen.Setting}
                                   options={{
-                                      tabBarLabel: 'Setting',
-                                      tabBarIcon: ({color}) => (<Ionicons name={`${APP_OS}-cog`} color={color} size={24}/>),
+                                      tabBarLabel: '더보기',
+                                      tabBarIcon: ({color}) => (<FontAwesome name={`ellipsis-h`} color={color} size={24}/>),
                                   }}/>
 
             </BottomNav.Navigator>
@@ -94,7 +103,7 @@ const Router = () => {
                     headerStyle: { backgroundColor: color.FG1 },
                 }}>
                 <Stack.Screen name="Main" component={BottomNavigation}/>
-                <Stack.Screen name="Basket" component={Screen.Basket}/>
+                {/*<Stack.Screen name="Basket" component={Screen.Basket}/>*/}
                 <Stack.Screen name="Login" component={Screen.Login}/>
                 <Stack.Screen name="SignUp" component={Screen.SignUp}/>
             </Stack.Navigator>

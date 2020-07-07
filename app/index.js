@@ -36,7 +36,7 @@ function checkingToToken(res) {
 }
 
 ErrorUtils.setGlobalHandler(()=>{
-    console.log("??????????")
+    console.log("setGlobalHandler");
 })
 
 AppRegistry.registerComponent(appName, () => App);

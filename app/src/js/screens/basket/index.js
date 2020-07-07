@@ -8,21 +8,28 @@ import {View,
 } from 'react-native'
 import { FlatGrid  , SectionGrid } from 'react-native-super-grid';
 import {GET_COLOR, RandomColor} from "../../public/colors";
-import {BackButton} from "../common/button";
+import {useSelector} from "react-redux";
+import {isFalse} from "../../public/comm";
 
 export default ({navigation}) => {
 
-    React.useLayoutEffect(()=>{
-
-        navigation.setOptions({
-            headerLeft : () => (
-              <BackButton  navigation={navigation}/>
-            )
-        })
-
-    },[navigation])
+    const isLogin = useSelector(state => state.Statics, []).isLogin.data
 
     let items = RandomColor
+
+    if (isFalse(isLogin)) {
+        return (
+            <>
+                <StatusBar/>
+                <SafeAreaView style={{
+                    flex: 1,
+                    backgroundColor: GET_COLOR().BACKGROUND_COLOR
+                }}>
+                    <Text>로그인이 필요합니다</Text>
+                </SafeAreaView>
+            </>
+        )
+    }
 
     return (
         <>

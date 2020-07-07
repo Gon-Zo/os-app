@@ -97,7 +97,7 @@ export function BackButton(props) {
     )
 }
 
-export function BasketButton(props) {
+export function LoginButton(props) {
 
     const navigation = props.navigation
 
@@ -105,20 +105,24 @@ export function BasketButton(props) {
 
     if (isFalse(isLogin.data)) {
         return (
-            <>
-            </>
+            <TouchableOpacity
+            onPress={()=>{
+                navigation.navigate('Login')
+            }}>
+                <Text>로그인</Text>
+            </TouchableOpacity>
+        )
+    } else {
+        return (
+            <TouchableOpacity
+                onPress={() => {
+                    navigation.navigate('Login')
+                }}
+                style={{paddingRight: 10}}>
+                <Text>My Info</Text>
+            </TouchableOpacity>
         )
     }
-
-    return(
-        <TouchableOpacity
-            onPress={() => {
-                navigation.navigate('Basket')
-            }}
-            style={{paddingRight: 10}}>
-            <Ionicons name="ios-basket" color="#424242" size={20}/>
-        </TouchableOpacity>
-    )
 
 }
 
