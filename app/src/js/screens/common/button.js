@@ -180,3 +180,48 @@ export function IconButton(props) {
     )
 }
 
+export function IconAndTextButton(props) {
+
+    const icon = props.icon
+
+    const label = props.label
+
+    const onPress = props.onPress
+
+    const color = props.color
+
+    const size = props.size
+
+    return (
+        <TouchableOpacity
+            onPress={onPress}
+            activeOpacity={1}
+            style={{
+                flex: 1,
+                flexDirection: 'column',
+                justifyContent: 'center',
+                textAlign: 'center'
+            }}>
+            <View style={{
+                flexDirection: 'row',
+                textAlign: 'center',
+                justifyContent: 'center'
+            }}>
+                <FontAwesome name={icon} color={color} size={size}/>
+            </View>
+            <View style={{
+                flexDirection: 'row',
+                textAlign: 'center',
+                justifyContent: 'center',
+                paddingTop: 10,
+            }}>
+                <Text style={{
+                    fontSize : size / 2,
+                    color : color
+                }}>{label}</Text>
+            </View>
+        </TouchableOpacity>
+    )
+}
+
+

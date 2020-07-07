@@ -40,7 +40,6 @@ export function updateLoginData(dispatch, payload) {
 }
 
 export function onIsTheme(dispatch, payload) {
-
     dispatch(onThemeLoad())
     try {
         dispatch(onThemeData(payload))
