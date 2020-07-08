@@ -6,6 +6,49 @@ import {
 } from "react-native";
 import {GET_COLOR} from "../../public/colors";
 import {IconAndTextButton} from "../common/button";
+import {Text} from "react-native-paper";
+
+function TextItems(props) {
+
+    const color = GET_COLOR()
+
+    return (
+        <View style={{
+            flex: 1,
+            flexDirection: 'column'
+        }}>
+            <View style={{
+                flex: 1,
+                flexDirection: 'row',
+            }}>
+                <Text style={{
+                    textAlign: 'justify',
+                    lineHeight: 35,
+                    fontSize: 17,
+                    paddingLeft: 5,
+                    color : color.PRIMARY
+                }}>
+                    [공지] 2020 . 01 . 01 업데이트
+                </Text>
+            </View>
+            <View style={{
+                flex: 1,
+                flexDirection: 'row',
+                textAlign: 'center',
+                paddingLeft: 5,
+            }}>
+                <Text style={{
+                    textAlign: 'justify',
+                    lineHeight: 30,
+                    color : color.PRIMARY
+                }}>
+                    2020.01.01
+                </Text>
+            </View>
+        </View>
+    )
+
+}
 
 export default ({navigation}) => {
 
@@ -67,12 +110,16 @@ export default ({navigation}) => {
                 </View>
 
                 <View style={{
+                    flex: 0.7,
+                }}>
+                    <TextItems/>
+                </View>
+
+                <View style={{
                     flex : 6,
                     flexDirection : 'row',
                     backgroundColor : '#c9c9c9'
-                }}>
-
-                </View>
+                }}></View>
 
 
             </SafeAreaView>
