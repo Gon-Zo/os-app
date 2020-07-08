@@ -103,26 +103,17 @@ export function LoginButton(props) {
 
     const isLogin = props.isLogin
 
-    if (isFalse(isLogin.data)) {
-        return (
-            <TouchableOpacity
-            onPress={()=>{
+    const text = isFalse(isLogin.data) ? "로그인" : "My Info"
+
+    return (
+        <TouchableOpacity
+            onPress={() => {
                 navigation.navigate('Login')
-            }}>
-                <Text>로그인</Text>
-            </TouchableOpacity>
-        )
-    } else {
-        return (
-            <TouchableOpacity
-                onPress={() => {
-                    navigation.navigate('Login')
-                }}
-                style={{paddingRight: 10}}>
-                <Text>My Info</Text>
-            </TouchableOpacity>
-        )
-    }
+            }}
+            style={{paddingRight: 10}}>
+            <Text>{text}</Text>
+        </TouchableOpacity>
+    )
 
 }
 

@@ -31,9 +31,6 @@ export default ({navigation}) => {
                         onPress={()=>{
                             navigation.goBack()
                         }}/>
-                <Text>
-                    TEST
-                </Text>
                 <SettingContent isTheme={theme.data}
                                 dispatch={dispatch}
                                 color={color}/>
@@ -59,25 +56,41 @@ function SettingContent(props) {
         }}>
 
             <View style={{
-                flexDirection: 'column',
-                alignItems: 'stretch'
+                flexDirection: 'row',
+                flex  : 1,
             }}>
+
+                <View style={{
+                    flex : 2 ,
+                    alignItems : 'flex-start',
+                    paddingLeft : 20
+                }}>
                     <Text style={{
-                        color : color.PRIMARY
+                        color: color.PRIMARY,
+                        fontSize : 18 ,
                     }}>다크모드</Text>
-                <Switch
-                    trackColor={{false: "#767577", true: "#81b0ff"}}
-                    thumbColor={isEnabled ? "#f5dd4b" : "#f4f3f4"}
-                    ios_backgroundColor="#3e3e3e"
-                    onValueChange={(val) => {
-                        setIsEnabled(val)
-                        onIsTheme(dispatch, val)
-                        const item = val ? THEME.D : THEME.L
-                        AsyncStorage.setItem("theme", item).then(r => console.log("success"))
-                    }}
-                    value={isEnabled}
-                />
+                </View>
+
+                <View style={{
+                    flex : 1 ,
+                    alignItems : 'center',
+                }}>
+                    <Switch
+                        trackColor={{false: "#767577", true: color.FG2}}
+                        thumbColor={isEnabled ? color.SUCCESS : "#f4f3f4"}
+                        ios_backgroundColor="#3e3e3e"
+                        onValueChange={(val) => {
+                            setIsEnabled(val)
+                            onIsTheme(dispatch, val)
+                            const item = val ? THEME.D : THEME.L
+                            AsyncStorage.setItem("theme", item)
+                        }}
+                        value={isEnabled}
+                    />
+                </View>
+
             </View>
+        {/* 1 row */}
 
         </View>
     )
