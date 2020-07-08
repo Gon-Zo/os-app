@@ -2,11 +2,15 @@ import React from 'react'
 import {
     SafeAreaView,
     StatusBar,
-    View
+    View,
+    TouchableOpacity, ScrollView
 } from "react-native";
 import {GET_COLOR} from "../../public/colors";
 import {IconAndTextButton} from "../common/button";
 import {Text} from "react-native-paper";
+import FontAwesome from "react-native-vector-icons/FontAwesome";
+import * as Dimensions from "react-native";
+import {FlatGrid} from "react-native-super-grid";
 
 function TextItems(props) {
 
@@ -116,14 +120,62 @@ export default ({navigation}) => {
                 </View>
 
                 <View style={{
-                    flex : 6,
-                    flexDirection : 'row',
-                    backgroundColor : '#c9c9c9'
-                }}></View>
+                    flex: 6,
+                    flexDirection: 'row',
+                    flexWrap: 'wrap',
+                    padding : 20,
+                }}>
 
+                    <FlatGrid
+                        data={items}
+                        itemDimension={80}
+                        renderItem={({item}) => (
+                            <TouchableOpacity
+                                activeOpacity={1}
+                                style={{
+                                    backgroundColor: color.FG1,
+                                    width: 80,
+                                    height: 80,
+                                    alignItems: 'center',
+                                    justifyContent: 'center',
+                                    borderWidth: 1,
+                                    borderColor: color.SECONDARY,
+                                    borderRadius: 10
+                                }}
+                                onPress={() => {
+                                    alert("test success")
+                                }}>
+                                <FontAwesome name={item.icon} color={"#424242"} size={28}/>
+                                <Text>{item.text}</Text>
+                            </TouchableOpacity>
+                        )}
+                    />
+
+                </View>
 
             </SafeAreaView>
         </>
     )
 }
+
+const items = [
+    {text : "user" , icon : "user"},
+    {text : "cog" , icon : "cog"},
+    {text : "user" , icon : "user"},
+    {text : "user" , icon : "user"},
+    {text : "user" , icon : "user"},
+    {text : "user" , icon : "user"},
+    {text : "user" , icon : "user"},
+    {text : "user" , icon : "user"},
+    {text : "user" , icon : "user"},
+    {text : "user" , icon : "user"},
+    {text : "user" , icon : "user"},
+    {text : "user" , icon : "user"},
+    {text : "user" , icon : "user"},
+    {text : "user" , icon : "user"},
+    {text : "user" , icon : "user"},
+    {text : "user" , icon : "user"},
+    ]
+
+
 

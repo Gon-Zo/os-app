@@ -105,15 +105,15 @@ export function LoginButton(props) {
 
     const text = isFalse(isLogin.data) ? "로그인" : "My Info"
 
-    return (
-        <TouchableOpacity
-            onPress={() => {
-                navigation.navigate('Login')
-            }}
-            style={{paddingRight: 10}}>
-            <Text>{text}</Text>
-        </TouchableOpacity>
-    )
+        return (
+            <TouchableOpacity
+                onPress={() => {
+                    navigation.navigate('Login')
+                }}
+                style={{paddingRight: 10}}>
+                <Text>{text}</Text>
+            </TouchableOpacity>
+        )
 
 }
 
