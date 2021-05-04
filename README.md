@@ -1,6 +1,10 @@
-## Project Contents
+# React Native Sample Application
 
-### Project 설명  
-> `React Native` 를 사용하여 `Android` 및 `ios` 개발 <br/>
-> 기본적인 쇼핑몰 디자인 UI / UX 개발 
-______
+## Skill
+<p>
+<img src="https://img.shields.io/badge/React-0088CC?style=flat-square&logo=React&logoColor=white"/>
+<img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=JavaScript&logoColor=white"/>
+</p>
+
+## Contents
+> 쇼핑몰의 UI 
